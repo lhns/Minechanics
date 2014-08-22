@@ -1,5 +1,6 @@
 *.class
 *.log
+run/
 
 # sbt specific
 .cache/
@@ -18,3 +19,9 @@ project/plugins/project/
 
 # eclipse specific
 .project
+.classpath
+.settings/
+
+# gradle
+.gradle/
+build/
