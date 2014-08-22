@@ -1,12 +1,12 @@
 [
 {
-  "modid": "mcncs",
-  "name": "Minechanics2",
+  "modid": "minechanics",
+  "name": "Minechanics3",
   "description": "Random game mechanics, machines and enhancements for Minecraft.",
   "version": "$version",
   "mcversion": "$mcversion",
   "logoFile": "/assets/mcncs/logo.png",
-  "url": "https://github.com/LolHens/Minechanics2",
+  "url": "https://github.com/LolHens/Minechanics3",
   "updateUrl": "",
   "authors": ["LolHens"],
   "credits": "The Forge and FML guys, for making a great API to work with",
