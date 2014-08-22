@@ -16,8 +16,6 @@ object Minechanics {
   final val Name = "Minechanics3"
   final val Version = "@VERSION@"
 
-  val log = Logger.getLogger(Id)
-
   @SidedProxy(clientSide = "org.lolhens.minechanics.client.ClientProxy", serverSide = "org.lolhens.minechanics.server.ServerProxy")
   var proxy: Proxy = null
 
