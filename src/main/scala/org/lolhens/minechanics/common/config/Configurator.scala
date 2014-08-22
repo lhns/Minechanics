@@ -37,9 +37,9 @@ class Configurator(config: Configuration, configClass: Class[_]) {
 
     def forClass(clazz: Class[_]) = {
       clazz match {
-        case t if PrimitiveUtil.BOOLEAN.equals(clazz) => Boolean
-        case t if PrimitiveUtil.INTEGER.equals(clazz) => Integer
-        case t if PrimitiveUtil.DOUBLE.equals(clazz) => Double
+        case t if PrimitiveUtil.BOOLEAN == clazz => Boolean
+        case t if PrimitiveUtil.INTEGER == clazz => Integer
+        case t if PrimitiveUtil.DOUBLE == clazz => Double
         case t if clazz == classOf[String] => String
         case t if clazz == classOf[Block] => Block
         case _ => null
