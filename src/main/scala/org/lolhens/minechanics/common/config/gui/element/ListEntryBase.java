@@ -15,6 +15,6 @@ public abstract class ListEntryBase extends
 	public Object getCurrentValue() {
 		return getCurrentValue2();
 	}
-	
+
 	public abstract Object getCurrentValue2();
 }

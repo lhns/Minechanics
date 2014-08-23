@@ -14,7 +14,7 @@ import org.lolhens.minechanics.common.config.Configurator
 @Mod(modid = Minechanics.Id, name = Minechanics.Name, version = Minechanics.Version, modLanguage = "scala", guiFactory = "org.lolhens.minechanics.common.config.gui.ConfigGuiFactory")
 object Minechanics {
   final val Id = "minechanics"
-  final val Name = "Minechanics3 Scala Edition approved by th3falc0n"
+  final val Name = "Minechanics3"
   final val Version = "@VERSION@"
 
   @SidedProxy(clientSide = "org.lolhens.minechanics.client.ClientProxy", serverSide = "org.lolhens.minechanics.server.ServerProxy")
