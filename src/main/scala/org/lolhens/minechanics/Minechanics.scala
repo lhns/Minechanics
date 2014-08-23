@@ -9,15 +9,18 @@ import cpw.mods.fml.common.event.FMLInitializationEvent
 import cpw.mods.fml.common.event.FMLPostInitializationEvent
 import cpw.mods.fml.common.event.FMLServerStartingEvent
 import cpw.mods.fml.common.SidedProxy
+import org.lolhens.minechanics.common.config.Configurator
 
-@Mod(modid = Minechanics.Id, name = Minechanics.Name, version = Minechanics.Version, modLanguage = "scala")
+@Mod(modid = Minechanics.Id, name = Minechanics.Name, version = Minechanics.Version, modLanguage = "scala", guiFactory = "org.lolhens.minechanics.common.config.gui.ConfigGuiFactory")
 object Minechanics {
   final val Id = "minechanics"
-  final val Name = "Minechanics3"
+  final val Name = "Minechanics3 Scala Edition approved by th3falc0n"
   final val Version = "@VERSION@"
 
   @SidedProxy(clientSide = "org.lolhens.minechanics.client.ClientProxy", serverSide = "org.lolhens.minechanics.server.ServerProxy")
   var proxy: Proxy = null
+
+  var configurator: Configurator = null;
 
   @EventHandler
   def preInit(event: FMLPreInitializationEvent) = proxy.preInit(event)

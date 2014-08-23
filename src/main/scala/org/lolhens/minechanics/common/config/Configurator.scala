@@ -20,6 +20,7 @@ class Configurator(config: Configuration, configClass: Class[_]) {
   for (field <- configClass.getFields()) {
     val modifiers = field.getModifiers();
     if (Modifier.isStatic(modifiers) && !Modifier.isTransient(modifiers)) {
+      LogHelper.fatal(field)
       field.getType() match {
         case t if t == classOf[Class[_]] =>
           val configClass = field.get(null).asInstanceOf[Class[_]]
@@ -30,6 +31,18 @@ class Configurator(config: Configuration, configClass: Class[_]) {
       }
     }
   }
+
+  def synch() = {
+    synchWithoutSave()
+    if (config.hasChanged()) config.save()
+  }
+
+  def synchWithoutSave(): Unit = {
+    for (value <- values) value.load(config)
+    for (configurator <- subConfigurators) configurator.synchWithoutSave()
+  }
+
+  def getConfig() = config
 
   object ConfigValueType extends Enumeration {
     type ConfigValueType = Value
