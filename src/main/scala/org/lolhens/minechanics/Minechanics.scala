@@ -20,7 +20,7 @@ object Minechanics {
   @SidedProxy(clientSide = "org.lolhens.minechanics.client.ClientProxy", serverSide = "org.lolhens.minechanics.server.ServerProxy")
   var proxy: Proxy = null
 
-  var configurator: Configurator = null;
+  var configurator: Configurator[_] = null;
 
   @EventHandler
   def preInit(event: FMLPreInitializationEvent) = proxy.preInit(event)

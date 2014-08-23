@@ -10,7 +10,7 @@ import org.lolhens.minechanics.common.config.Config
 
 class Proxy {
   def preInit(event: FMLPreInitializationEvent) = {
-    Minechanics.configurator = new Configurator(event, classOf[Config]);
+    Minechanics.configurator = new Configurator(event, Config);
     Minechanics.configurator.synch();
   }
 

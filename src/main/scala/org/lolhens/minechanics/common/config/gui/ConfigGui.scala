@@ -16,7 +16,7 @@ class ConfigGui(parent: GuiScreen) extends GuiConfig(parent, new java.util.Array
   addGuiElements(configElements, Minechanics.configurator)
   FMLCommonHandler.instance().bus().register(this)
 
-  def addGuiElements(elements: java.util.List[IConfigElement[_]], configurator: Configurator) = {
+  def addGuiElements(elements: java.util.List[IConfigElement[_]], configurator: Configurator[_]) = {
     def firstLetterToUpperCase(string: String) = if (string.length() > 1) string.substring(0, 1).toUpperCase() + string.substring(1) else string;
     val config = configurator.getConfig()
     val iterator = config.getCategoryNames().iterator()
