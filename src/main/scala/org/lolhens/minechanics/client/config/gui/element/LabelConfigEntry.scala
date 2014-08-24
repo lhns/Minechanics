@@ -1,4 +1,4 @@
-package org.lolhens.minechanics.common.config.gui.element
+package org.lolhens.minechanics.client.config.gui.element
 
 import cpw.mods.fml.client.config.GuiConfigEntries
 import cpw.mods.fml.client.config.IConfigElement

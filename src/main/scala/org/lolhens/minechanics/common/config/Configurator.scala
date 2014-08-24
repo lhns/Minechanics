@@ -24,14 +24,11 @@ class Configurator[T: TypeTag: ClassTag](configuration: Configuration, config: T
   private val mirror = runtimeMirror(getClass.getClassLoader)
 
   for (field <- typeOf[T].members.collect { case m: MethodSymbol if m.isGetter => m }) {
-    LogHelper.fatal(field)
     val fieldMirror = mirror.reflect(config).reflectField(field)
 
-    typeOf[T] match {
-      //case t if t =:= typeOf[Class[_]] => subConfigurators += new Configurator(config, fieldMirror.get.asInstanceOf[Class[_]])
+    fieldMirror.symbol.typeSignature match {
+      case t if (ConfigValue.isValidType(t)) => values += new ConfigValue(fieldMirror)
       case _ =>
-        val configValue = new ConfigValue(fieldMirror)
-        if (configValue.isValid()) values += configValue
     }
   }
 

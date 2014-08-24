@@ -1,4 +1,4 @@
-package org.lolhens.minechanics.common.config.gui
+package org.lolhens.minechanics.client.config.gui
 
 import cpw.mods.fml.client.IModGuiFactory
 import cpw.mods.fml.client.IModGuiFactory.RuntimeOptionCategoryElement

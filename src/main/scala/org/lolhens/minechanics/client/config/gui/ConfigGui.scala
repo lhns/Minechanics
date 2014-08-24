@@ -1,10 +1,10 @@
-package org.lolhens.minechanics.common.config.gui
+package org.lolhens.minechanics.client.config.gui
 
 import cpw.mods.fml.client.config.GuiConfig
 import net.minecraft.client.gui.GuiScreen
 import cpw.mods.fml.client.config.IConfigElement
 import org.lolhens.minechanics.common.config.Configurator
-import org.lolhens.minechanics.common.config.gui.element.LabelConfigElement
+import org.lolhens.minechanics.client.config.gui.element.LabelConfigElement
 import net.minecraftforge.common.config.ConfigElement
 import org.lolhens.minechanics.Minechanics
 import cpw.mods.fml.common.FMLCommonHandler

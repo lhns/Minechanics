@@ -5,6 +5,7 @@ import net.minecraftforge.common.config.Configuration
 import net.minecraft.block.Block
 import scala.reflect.ClassTag
 import org.lolhens.minechanics.common.util.UnlocalizedNameUtil
+import org.lolhens.minechanics.common.util.LogHelper
 
 class ConfigValue(field: FieldMirror) {
   val default = field.get
@@ -18,28 +19,33 @@ class ConfigValue(field: FieldMirror) {
 
   def set(obj: Any) = field.set(obj);
 
-  def isValid() = default match {
-    case null => false
-    case _: Boolean => true
-    case _: Integer => true
-    case _: Double => true
-    case _: String => true
-    case _: Block => true
-  }
-
   def load(config: Configuration) = default match {
-    case v: Boolean => set(config.get(group, name, v).getBoolean(v))
-    case v: Integer => set(config.get(group, name, v).getInt)
-    case v: Double => set(config.get(group, name, v).getDouble(v))
-    case v: String => set(config.get(group, name, v).getString)
-    case v: Block =>
-      val defaultBlockName = v.getUnlocalizedName
+    case d: Boolean => set(config.get(group, name, d).getBoolean(d))
+    case d: Int => set(config.get(group, name, d).getInt)
+    case d: Double => set(config.get(group, name, d).getDouble(d))
+    case d: String => set(config.get(group, name, d).getString)
+    case d: Block =>
+      val defaultBlockName = d.getUnlocalizedName
       val configProperty = config.get(group, name, defaultBlockName)
-      var loadedBlock = UnlocalizedNameUtil.getBlockByUnlocalizedName(configProperty.getString)
-      if (loadedBlock == null) {
-        loadedBlock = v
-        configProperty.set(defaultBlockName)
-      }
-      set(loadedBlock)
+      set(UnlocalizedNameUtil.getBlockByUnlocalizedName(configProperty.getString) match {
+        case null =>
+          configProperty.set(defaultBlockName)
+          d
+        case value => value
+      })
+  }
+}
+
+object ConfigValue {
+  def isValidType(tpe: Type) = tpe match {
+    case null => false
+    case t if t =:= typeOf[Boolean] => true
+    case t if t =:= typeOf[Int] => true
+    case t if t =:= typeOf[Double] => true
+    case t if t =:= typeOf[String] => true
+    case t if t =:= typeOf[Block] => true
+    case t =>
+      LogHelper.fatal(t)
+      false
   }
 }
