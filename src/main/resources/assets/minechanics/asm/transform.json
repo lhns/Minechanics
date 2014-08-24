@@ -1,0 +1,30 @@
+[
+    {
+	    "name": "",
+	    "triggers": [
+		    {
+			    "class": "",
+				"method": "",
+				"after": [
+                    ""
+                ],
+                "replace": [
+                    ""
+                ],
+                "before": [
+                    ""
+                ]
+			}
+		],
+        "variables": [
+		    {
+			    "name": "",
+				"type": "",
+				"value": ""
+			}
+		],
+        "instructions": [
+            ""
+        ]
+    }
+]
