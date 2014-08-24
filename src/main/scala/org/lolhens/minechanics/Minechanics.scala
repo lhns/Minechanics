@@ -11,11 +11,13 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent
 import cpw.mods.fml.common.SidedProxy
 import org.lolhens.minechanics.common.config.Configurator
 
-@Mod(modid = Minechanics.Id, name = Minechanics.Name, version = Minechanics.Version, modLanguage = "scala", guiFactory = "org.lolhens.minechanics.client.config.gui.ConfigGuiFactory")
+@Mod(modid = Minechanics.Id, name = Minechanics.Name, version = Minechanics.Version, modLanguage = "scala", canBeDeactivated = false, guiFactory = "org.lolhens.minechanics.client.config.gui.ConfigGuiFactory")
 object Minechanics {
   final val Id = "minechanics"
   final val Name = "Minechanics3"
   final val Version = "@VERSION@"
+  final val McVersion = "1.7.10"
+  final val AccessTransformer = "minechanics_at.cfg"
 
   @SidedProxy(clientSide = "org.lolhens.minechanics.client.ClientProxy", serverSide = "org.lolhens.minechanics.server.ServerProxy")
   var proxy: Proxy = null
