@@ -4,9 +4,9 @@ import cpw.mods.fml.client.config.IConfigElement
 import net.minecraftforge.common.config.ConfigCategory
 import cpw.mods.fml.client.config.GuiConfigEntries.IConfigEntry
 
-class LabelConfigElement(ctgy: ConfigCategory, value: String) extends IConfigElement[Object] {
+class ConfigElementLabel(ctgy: ConfigCategory, value: String) extends IConfigElement[Object] {
   override def isProperty() = false
-  override def getConfigEntryClass() = classOf[LabelConfigEntry]
+  override def getConfigEntryClass() = classOf[ConfigEntryLabel]
   override def getArrayEntryClass() = null
   override def getName() = value
   override def getQualifiedName() = null

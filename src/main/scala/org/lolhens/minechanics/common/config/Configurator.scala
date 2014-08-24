@@ -15,7 +15,7 @@ import scala.reflect.ClassTag
 
 class Configurator[T: TypeTag: ClassTag](configuration: Configuration, config: T) {
   def this(event: FMLPreInitializationEvent, config: T) = {
-    this(new Configuration(event.getSuggestedConfigurationFile()), config)
+    this(new Configuration(event.getSuggestedConfigurationFile), config)
   }
 
   val values = new MutableList[ConfigValue]()
@@ -34,12 +34,12 @@ class Configurator[T: TypeTag: ClassTag](configuration: Configuration, config: T
 
   def synch() = {
     synchWithoutSave()
-    if (configuration.hasChanged()) configuration.save()
+    if (configuration.hasChanged) configuration.save
   }
 
   def synchWithoutSave(): Unit = {
     for (value <- values) value.load(configuration)
-    for (configurator <- subConfigurators) configurator.synchWithoutSave()
+    for (configurator <- subConfigurators) configurator.synchWithoutSave
   }
 
   def getConfig() = configuration

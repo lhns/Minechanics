@@ -26,7 +26,7 @@ class ConfigValue(field: FieldMirror) {
     case d: String => set(config.get(group, name, d).getString)
     case d: Block =>
       val defaultBlockName = d.getUnlocalizedName
-      val configProperty = config.get(group, name, defaultBlockName)
+      val configProperty = config.get(group, "block:" + name, defaultBlockName)
       set(UnlocalizedNameUtil.getBlockByUnlocalizedName(configProperty.getString) match {
         case null =>
           configProperty.set(defaultBlockName)
