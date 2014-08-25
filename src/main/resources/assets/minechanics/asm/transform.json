@@ -1,30 +1,67 @@
-[
-    {
-	    "name": "",
-	    "triggers": [
-		    {
-			    "class": "",
-				"method": "",
-				"after": [
-                    ""
-                ],
-                "replace": [
-                    ""
-                ],
-                "before": [
-                    ""
-                ]
+{
+	"vars": {
+		"insnLists": [
+			{
+				"name": "set1",
+				"insns": [
+					"",
+					""
+				]
 			}
 		],
-        "variables": [
-		    {
-			    "name": "",
-				"type": "",
-				"value": ""
+		"methods": [
+			{
+				"name": "m"
+				"desc": "s"
 			}
 		],
-        "instructions": [
-            ""
-        ]
-    }
-]
+		"triggers": [
+			{
+				"name": "t1",
+				"before": {
+					"insnList": "set1"
+				},
+				"after": {
+					"insnList": "set1"
+				}
+			}
+		],
+	}
+	"actions": [
+		{
+			"name": "",
+			"classes": [
+		    	class: "",
+		        methods: {
+			        add: [
+				        {
+						    "method": ""
+							"insns": ""
+						}
+		    		],
+			    	remove: [
+				        {
+						    "method": ""
+						}
+			    	],
+				    transform: [
+				        {
+					        "method": "m",
+    						"trigger": "t1",
+							"replace": "set1",
+							"insns": "set1"
+	    				}
+		        	]
+			    },
+				fields: {
+				    add: [
+					
+					]
+					remove: [
+					
+					]
+				}
+			]
+		}
+	]
+}
