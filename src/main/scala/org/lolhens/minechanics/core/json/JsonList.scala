@@ -10,5 +10,5 @@ class JsonList(val list: java.util.List[_]) extends ValidJsonObject {
     while (iterator.hasNext()) f(JsonObject.fromAny(iterator.next()))
   }
 
-  override def map[B](f: (Any) => B): Set[B] = list.toSet[Any].map(f);
+  override def map[B](f: (Any) => B): Set[B] = list.toSet[Any].map(f)
 }

@@ -9,6 +9,11 @@ import cpw.mods.fml.relauncher.IFMLCallHook
 import org.lolhens.minechanics.common.util.LogHelper
 import org.lolhens.minechanics.core.asm.ClassTransformer
 import FMLMinechanicsPlugin._
+import org.lolhens.minechanics.core.json.JsonMap
+import com.google.gson.Gson
+import scala.io
+import org.lolhens.minechanics.core.json.JsonObject
+import org.lolhens.minechanics.core.json.JsonList
 
 @TransformerExclusions(Array("org.lolhens.minechanics.core"))
 @MCVersion(Minechanics.McVersion)
@@ -26,11 +31,15 @@ object FMLMinechanicsPlugin {
   class SetupClass extends IFMLCallHook {
     override def call() = {
       LogHelper.info("coremod loaded")
+
+      val root = JsonObject.fromFile("E:/test.json")
+      LogHelper.fatal(root._0)
+      LogHelper.fatal(root._2)
+      LogHelper.fatal(root._3)
       null
     }
     override def injectData(data: java.util.Map[String, Object]) = location = data.get("coremodLocation").asInstanceOf[File];
   }
 
-  class AccessTransformer extends cpw.mods.fml.common.asm.transformers.AccessTransformer(Minechanics.AccessTransformer) {
-  }
+  class AccessTransformer extends cpw.mods.fml.common.asm.transformers.AccessTransformer(Minechanics.AccessTransformer) {}
 }
