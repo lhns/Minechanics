@@ -23,7 +23,7 @@ class TransformerReader(reader: Reader) {
     def parseInsnList(map: JsonObject) = {
       val name: String = map.name
       if (name != null) {
-        var insns = for (insn <- map.insns) yield insn
+        val insns = for (insn <- map.insns) yield insn
       }
     }
   }
