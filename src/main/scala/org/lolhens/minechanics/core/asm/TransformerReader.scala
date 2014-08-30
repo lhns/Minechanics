@@ -3,6 +3,8 @@ package org.lolhens.minechanics.core.asm
 import java.io.File
 import com.google.gson.Gson
 import java.io.Reader
+import scala.collection.JavaConversions._
+import org.lolhens.minechanics.core.json._
 
 class TransformerReader(reader: Reader) {
   val insnLists = collection.mutable.Map[String, List[String]]()
@@ -13,15 +15,15 @@ class TransformerReader(reader: Reader) {
 
   private def read() = {
     type javaMap = java.util.Map[_, _]
-    type javaList = java.util.List[_]
 
-    val root = new Gson().fromJson(reader, classOf[javaMap])
+    val root = new JsonMap(new Gson().fromJson(reader, classOf[javaMap]))
 
-    val vars = root.get("vars").asInstanceOf[javaMap]
-    if (vars != null) {
-      val insnLists = vars.get("insnLists").asInstanceOf[javaList]
-      if (insnLists != null) {
+    for (insnList <- root.vars.insnLists) if (insnList.isInstanceOf[JsonMap]) parseInsnList(insnList.asInstanceOf[JsonMap])
 
+    def parseInsnList(map: JsonObject) = {
+      val name: String = map.name
+      if (name != null) {
+        var insns = for (insn <- map.insns) yield insn
       }
     }
   }
