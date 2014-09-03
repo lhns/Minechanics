@@ -6,7 +6,7 @@ import java.io.Reader
 import scala.collection.JavaConversions._
 import org.lolhens.minechanics.core.json._
 
-class TransformerReader(reader: Reader) {
+class Transformations(reader: Reader) {
   val insnLists = collection.mutable.Map[String, List[String]]()
   val methods = collection.mutable.Map[String, String]()
   val triggers = collection.mutable.Map[String, Trigger]()
