@@ -22,9 +22,9 @@ class JsonObject extends Dynamic {
 
   def getStringValue(): String = null
 
-  def getIntValue(): Int = 0
-
   def getDoubleValue(): Double = 0
+
+  def getBooleanValue(): Boolean = false
 
   def isValid() = false
 }
@@ -37,6 +37,7 @@ object JsonObject {
       case any: java.util.Map[_, _] => new JsonMap(any)
       case any: String => new JsonString(any)
       case any: Double => new JsonDouble(any)
+      case any: Boolean => new JsonBoolean(any);
       case _ => new JsonObject
     }
   }
@@ -61,6 +62,6 @@ object JsonObject {
   def fromFile(path: String): JsonObject = fromJson(io.Source.fromFile(path).mkString)
 
   implicit def getStringValue(json: JsonObject): String = json.getStringValue
-  implicit def getIntValue(json: JsonObject): Int = json.getIntValue
   implicit def getDoubleValue(json: JsonObject): Double = json.getDoubleValue
+  implicit def getBooleanValue(json: JsonObject): Boolean = json.getBooleanValue
 }

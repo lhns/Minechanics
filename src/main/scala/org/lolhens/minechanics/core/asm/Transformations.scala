@@ -3,13 +3,16 @@ package org.lolhens.minechanics.core.asm
 import java.io.File
 import com.google.gson.Gson
 import java.io.Reader
-import scala.collection.JavaConversions._
+import collection._
+import collection.JavaConversions._
 import org.lolhens.minechanics.core.json._
+import org.objectweb.asm.tree.InsnList
+import org.objectweb.asm.tree.MethodNode
 
 class Transformations(reader: Reader) {
-  val insnLists = collection.mutable.Map[String, List[String]]()
-  val methods = collection.mutable.Map[String, String]()
-  val triggers = collection.mutable.Map[String, Trigger]()
+  val insnLists = mutable.Map[String, InsnList]()
+  val methods = mutable.Map[String, MethodNode]()
+  val triggers = mutable.Map[String, Trigger]()
 
   read
 
