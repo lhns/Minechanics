@@ -1,5 +1,7 @@
 package org.lolhens.minechanics.core.asm
 
-class Trigger {
+import org.objectweb.asm.tree.InsnList
+
+class Trigger(insns: InsnList, pre: Boolean) {
 
 }

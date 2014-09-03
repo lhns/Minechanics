@@ -13,6 +13,7 @@ class Transformations(reader: Reader) {
   val insnLists = mutable.Map[String, InsnList]()
   val methods = mutable.Map[String, MethodNode]()
   val triggers = mutable.Map[String, Trigger]()
+  val transformations = mutable.Map[String, Transformation]()
 
   read
 
