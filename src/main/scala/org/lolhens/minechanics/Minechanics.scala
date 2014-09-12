@@ -10,6 +10,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent
 import cpw.mods.fml.common.event.FMLServerStartingEvent
 import cpw.mods.fml.common.SidedProxy
 import org.lolhens.minechanics.common.config.Configurator
+import scala.collection._
 
 @Mod(modid = Minechanics.Id, name = Minechanics.Name, version = Minechanics.Version, modLanguage = "scala", canBeDeactivated = false, guiFactory = "org.lolhens.minechanics.client.config.gui.ConfigGuiFactory")
 object Minechanics {
