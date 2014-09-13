@@ -19,7 +19,7 @@ trait StorageAccess extends Dynamic {
   def getStringValue(): String
   def getDoubleValue(): Double
   def getBooleanValue(): Boolean
-
+  def get(): Any
   def isValid(): Boolean
 
   def fromAny(any: Any): StorageAccess

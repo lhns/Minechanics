@@ -9,6 +9,6 @@ abstract class EmptyStorageAccess extends StorageAccess {
   override def getStringValue(): String = null
   override def getDoubleValue(): Double = 0
   override def getBooleanValue(): Boolean = false
-
+  override def get(): Any = null
   override def isValid() = false
 }
