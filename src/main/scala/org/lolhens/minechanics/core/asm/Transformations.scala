@@ -5,9 +5,10 @@ import com.google.gson.Gson
 import java.io.Reader
 import collection._
 import collection.JavaConversions._
-import org.lolhens.minechanics.core.json._
 import org.objectweb.asm.tree.InsnList
 import org.objectweb.asm.tree.MethodNode
+import org.lolhens.minechanics.core.storageaccess._
+import org.lolhens.minechanics.core.storageaccess.json._
 
 class Transformations(reader: Reader) {
   val insnLists = mutable.Map[String, InsnList]()
@@ -24,7 +25,7 @@ class Transformations(reader: Reader) {
 
     for (insnList <- root.vars.insnLists) if (insnList.isInstanceOf[JsonMap]) parseInsnList(insnList.asInstanceOf[JsonMap])
 
-    def parseInsnList(map: JsonObject) = {
+    def parseInsnList(map: StorageAccess) = {
       val name: String = map.name
       if (name != null) {
         val insns = for (insn <- map.insns) yield insn

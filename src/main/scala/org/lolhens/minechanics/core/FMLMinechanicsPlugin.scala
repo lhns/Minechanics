@@ -9,11 +9,9 @@ import cpw.mods.fml.relauncher.IFMLCallHook
 import org.lolhens.minechanics.common.util.LogHelper
 import org.lolhens.minechanics.core.asm.ClassTransformer
 import FMLMinechanicsPlugin._
-import org.lolhens.minechanics.core.json.JsonMap
 import com.google.gson.Gson
 import scala.io
-import org.lolhens.minechanics.core.json.JsonObject
-import org.lolhens.minechanics.core.json.JsonList
+import org.lolhens.minechanics.core.storageaccess.json.JsonObject
 
 @TransformerExclusions(Array("org.lolhens.minechanics.core"))
 @MCVersion(Minechanics.McVersion)
