@@ -26,9 +26,9 @@ configFile.withReader {
     project.ext.config = new ConfigSlurper().parse prop
 }
 
-version = config.mod_version
-group= "org.lolhens.minechanics" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group = "org.lolhens.minechanics" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "minechanics"
+version = config.mod_version
 
 minecraft {
     version = config.minecraft_version + "-" + config.forge_version
@@ -59,7 +59,7 @@ processResources {
     // replace stuff in mcmod.info, nothing else
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-                
+        
         // replace version and mcversion
         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
@@ -75,3 +75,13 @@ jar {
         attributes 'FMLAT': 'minechanics_at.cfg'
     }
 }
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+task deobfJar(type: Jar) {
+    from sourceSets.main.output
+    classifier = 'dev'
+}
+build.dependsOn sourceJar, deobfJar

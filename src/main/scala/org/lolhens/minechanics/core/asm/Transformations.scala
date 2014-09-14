@@ -8,6 +8,7 @@ import org.objectweb.asm.tree.InsnList
 import org.objectweb.asm.tree.MethodNode
 import org.lolhens.minechanics.core.storageaccess._
 import org.lolhens.minechanics.core.storageaccess.json._
+import org.objectweb.asm.tree.InsnNode
 
 object Transformations {
   val transformations = mutable.Map[String, Transformation]()
@@ -24,6 +25,8 @@ object Transformations {
     def parseInsnList(map: StorageAccess) = {
       val name: String = map.name
       if (name != null) {
+        val test = new InsnList()
+        test.add(new InsnNode(5))
         val insns = for (insn <- map.insns) yield insn
       }
     }
