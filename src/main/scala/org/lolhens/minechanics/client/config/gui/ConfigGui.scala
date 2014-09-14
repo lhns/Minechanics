@@ -10,7 +10,7 @@ import org.lolhens.minechanics.Minechanics
 import cpw.mods.fml.common.FMLCommonHandler
 import cpw.mods.fml.common.eventhandler.SubscribeEvent
 import cpw.mods.fml.client.event.ConfigChangedEvent
-import org.lolhens.minechanics.common.util.LogHelper
+import org.lolhens.minechanics.core.util.LogHelper
 import scala.collection.JavaConversions._
 import net.minecraftforge.common.config.Property
 import org.lolhens.minechanics.client.config.gui.element.ConfigElementBlock
@@ -22,7 +22,7 @@ class ConfigGui(parent: GuiScreen) extends GuiConfig(parent, new java.util.Array
   FMLCommonHandler.instance.bus.register(this)
 
   def addGuiElements(elements: java.util.List[IConfigElement[_]], configurator: Configurator[_]) = {
-    def firstLetterToUpperCase(string: String) = if (string.length > 1) string.substring(0, 1).toUpperCase + string.substring(1) else string;
+    def firstLetterToUpperCase(string: String) = if (string.length > 1) string.substring(0, 1).toUpperCase + string.substring(1) else string
     val config = configurator.getConfig
     val iterator = config.getCategoryNames.iterator
     while (iterator.hasNext) {

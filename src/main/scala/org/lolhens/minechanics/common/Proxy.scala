@@ -11,8 +11,8 @@ import org.lolhens.minechanics.common.item.Items
 
 class Proxy {
   def preInit(event: FMLPreInitializationEvent) = {
-    Minechanics.configurator = new Configurator(event, Config);
-    Minechanics.configurator.synch;
+    Minechanics.configurator = new Configurator(event, Config)
+    Minechanics.configurator.synch
 
     Items.load
   }
