@@ -1,8 +1,4 @@
-*.class
-*.log
-run/
-
-# sbt specific
+#SBT
 .cache/
 .history/
 .lib/
@@ -13,19 +9,22 @@ src_managed/
 project/boot/
 project/plugins/project/
 
-# Scala-IDE specific
+#Scala
 .scala_dependencies
 .worksheet
 
-# eclipse specific
+#Eclipse
 .project
 .classpath
 .settings/
+bin/
 
-# gradle
+#Gradle
 .gradle/
 build/
-/bin/
 
-# git
+#Git
 .cache
+
+#Minecraft
+run/

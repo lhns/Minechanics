@@ -4,7 +4,7 @@ import cpw.mods.fml.client.config.GuiConfigEntries
 import cpw.mods.fml.client.config.GuiConfig
 import cpw.mods.fml.client.config.IConfigElement
 import net.minecraft.client.renderer.Tessellator
-import org.lolhens.minechanics.common.util.LogHelper
+import org.lolhens.minechanics.core.util.LogHelper
 import org.lolhens.minechanics.common.util.UnlocalizedNameUtil
 
 class ConfigEntryBlock(owningScreen: GuiConfig, owningEntryList: GuiConfigEntries, configElement: IConfigElement[_])

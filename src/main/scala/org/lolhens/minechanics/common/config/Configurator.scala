@@ -7,7 +7,7 @@ import java.lang.reflect.Field
 import java.lang.reflect.Modifier
 import org.lolhens.minechanics.Minechanics
 import net.minecraft.block.Block
-import org.lolhens.minechanics.common.util.LogHelper
+import org.lolhens.minechanics.core.util.LogHelper
 import org.lolhens.minechanics.common.util.UnlocalizedNameUtil
 import reflect.runtime.universe._
 import scala.reflect.ClassTag
