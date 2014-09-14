@@ -11,7 +11,7 @@ object JsonObject extends EmptyStorageAccess {
     case any: java.util.Map[_, _] => new JsonMap(any)
     case any: String => new JsonString(any)
     case any: Double => new JsonDouble(any)
-    case any: Boolean => new JsonBoolean(any);
+    case any: Boolean => new JsonBoolean(any)
     case _ => JsonObject
   }
 

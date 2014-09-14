@@ -15,6 +15,7 @@ buildscript {
     }
 }
 
+apply plugin: 'scala'
 apply plugin: 'forge'
 
 ext.configFile = file "build.properties"
@@ -67,5 +68,11 @@ processResources
     // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
+    }
+}
+
+jar {
+    manifest {
+        attributes 'FMLAT': 'minechanics_at.cfg'
     }
 }

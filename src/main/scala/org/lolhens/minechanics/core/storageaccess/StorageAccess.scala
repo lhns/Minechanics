@@ -17,8 +17,14 @@ trait StorageAccess extends Dynamic {
   def get(key: String): StorageAccess
 
   def getStringValue(): String
-  def getDoubleValue(): Double
-  def getBooleanValue(): Boolean
+  def getNumberValue(): Number
+  def getDoubleValue(): Double = getNumberValue.doubleValue
+  def getFloatValue(): Float = getNumberValue.floatValue
+  def getIntegerValue(): Integer = getNumberValue.intValue
+  def getLongValue(): Long = getNumberValue.longValue
+  def getByteValue(): Byte = getNumberValue.byteValue
+  def getShortValue(): Short = getNumberValue.shortValue
+  def getBooleanValue(): Boolean = getNumberValue.intValue != 0
   def get(): Any
   def isValid(): Boolean
 
@@ -28,5 +34,10 @@ trait StorageAccess extends Dynamic {
 object StorageAccess {
   implicit def getStringValue(storageAccess: StorageAccess): String = storageAccess.getStringValue
   implicit def getDoubleValue(storageAccess: StorageAccess): Double = storageAccess.getDoubleValue
+  implicit def getFloatValue(storageAccess: StorageAccess): Float = storageAccess.getFloatValue
+  implicit def getIntegerValue(storageAccess: StorageAccess): Integer = storageAccess.getIntegerValue
+  implicit def getLongValue(storageAccess: StorageAccess): Long = storageAccess.getLongValue
+  implicit def getByteValue(storageAccess: StorageAccess): Byte = storageAccess.getByteValue
+  implicit def getShortValue(storageAccess: StorageAccess): Short = storageAccess.getShortValue
   implicit def getBooleanValue(storageAccess: StorageAccess): Boolean = storageAccess.getBooleanValue
 }

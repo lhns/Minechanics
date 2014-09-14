@@ -6,7 +6,6 @@ import scala.collection.mutable.MutableList
 import java.lang.reflect.Field
 import java.lang.reflect.Modifier
 import org.lolhens.minechanics.Minechanics
-import com.dafttech.primitive.PrimitiveUtil
 import net.minecraft.block.Block
 import org.lolhens.minechanics.common.util.LogHelper
 import org.lolhens.minechanics.common.util.UnlocalizedNameUtil
