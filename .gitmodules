@@ -1,0 +1,3 @@
+[submodule "eventManager"]
+	path = eventManager
+	url = https://github.com/LolHens/EventManager.git
