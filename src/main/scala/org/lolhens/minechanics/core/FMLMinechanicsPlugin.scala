@@ -6,7 +6,7 @@ import org.lolhens.minechanics.Minechanics
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin
 import java.io.File
 import cpw.mods.fml.relauncher.IFMLCallHook
-import org.lolhens.minechanics.common.util.LogHelper
+import org.lolhens.minechanics.core.util.LogHelper
 import org.lolhens.minechanics.core.asm.ClassTransformer
 import FMLMinechanicsPlugin._
 import com.google.gson.Gson

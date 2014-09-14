@@ -1,7 +1,6 @@
 package org.lolhens.minechanics.core.asm
 
 import java.io.File
-import com.google.gson.Gson
 import java.io.Reader
 import collection._
 import collection.JavaConversions._
@@ -10,18 +9,15 @@ import org.objectweb.asm.tree.MethodNode
 import org.lolhens.minechanics.core.storageaccess._
 import org.lolhens.minechanics.core.storageaccess.json._
 
-class Transformations(reader: Reader) {
-  val insnLists = mutable.Map[String, InsnList]()
-  val methods = mutable.Map[String, MethodNode]()
-  val triggers = mutable.Map[String, Trigger]()
+object Transformations {
   val transformations = mutable.Map[String, Transformation]()
 
-  read
+  private def read(file: String) = {
+    val insnLists = mutable.Map[String, InsnList]()
+    val methods = mutable.Map[String, MethodNode]()
+    val triggers = mutable.Map[String, Transformation.Trigger]()
 
-  private def read() = {
-    type javaMap = java.util.Map[_, _]
-
-    val root = new JsonMap(new Gson().fromJson(reader, classOf[javaMap]))
+    val root = JsonObject.fromFile(file)
 
     for (insnList <- root.vars.insnLists) if (insnList.isInstanceOf[JsonMap]) parseInsnList(insnList.asInstanceOf[JsonMap])
 

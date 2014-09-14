@@ -5,7 +5,7 @@ import net.minecraftforge.common.config.Configuration
 import net.minecraft.block.Block
 import scala.reflect.ClassTag
 import org.lolhens.minechanics.common.util.UnlocalizedNameUtil
-import org.lolhens.minechanics.common.util.LogHelper
+import org.lolhens.minechanics.core.util.LogHelper
 
 class ConfigValue(field: FieldMirror) {
   val default = field.get

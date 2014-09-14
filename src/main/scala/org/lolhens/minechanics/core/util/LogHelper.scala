@@ -1,4 +1,4 @@
-package org.lolhens.minechanics.common.util
+package org.lolhens.minechanics.core.util
 
 import cpw.mods.fml.common.FMLLog
 import org.apache.logging.log4j.Level;
