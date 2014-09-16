@@ -7,18 +7,23 @@ import cpw.mods.fml.relauncher.SideOnly
 import net.minecraft.client.renderer.texture.IIconRegister
 import cpw.mods.fml.relauncher.Side
 import cpw.mods.fml.common.registry.GameRegistry
+import net.minecraft.creativetab.CreativeTabs
 
-class BlockBase(name: String, material: Material) extends Block(material) {
-  private val unwrappedName = s"$name.name"
-  private val unlocalizedName = s"tile.${Minechanics.Id.toLowerCase}:$unwrappedName"
-  setBlockName(name);
+class BlockBase(name: String, material: Material, tab: CreativeTabs) extends Block(material) {
+  private val rawName = s"${Minechanics.Id}:$name"
+  private val unlocalizedName = s"tile.$rawName"
 
-  GameRegistry.registerBlock(this, name)
+  setBlockName(name)
 
-  def this(name: String) = this(name, Material.rock)
+  setCreativeTab(tab)
+
+  def this(name: String, tab: CreativeTabs) = this(name, Material.rock, tab)
+  def this(name: String) = this(name, CreativeTabs.tabMisc)
+
+  def register() = GameRegistry.registerBlock(this, name)
 
   override def getUnlocalizedName() = unlocalizedName
 
   @SideOnly(Side.CLIENT)
-  override def registerBlockIcons(iconRegister: IIconRegister) = iconRegister.registerIcon(unwrappedName)
+  override def registerBlockIcons(iconRegister: IIconRegister) = blockIcon = iconRegister.registerIcon(rawName)
 }

@@ -7,5 +7,7 @@ import org.lolhens.minechanics.Minechanics
 object Items {
   val test = new ItemTest
 
-  def load = {}
+  def register = {
+    test.register
+  }
 }

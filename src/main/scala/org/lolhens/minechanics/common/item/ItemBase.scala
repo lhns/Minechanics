@@ -8,22 +8,26 @@ import cpw.mods.fml.relauncher.SideOnly
 import cpw.mods.fml.relauncher.Side
 import cpw.mods.fml.common.registry.GameRegistry
 import net.minecraft.creativetab.CreativeTabs
+import net.minecraft.util.IIcon
+import net.minecraft.entity.player.EntityPlayer
 
 class ItemBase(name: String, tab: CreativeTabs) extends Item {
-  private val unwrappedName = s"$name.name"
-  private val unlocalizedName = s"tile.${Minechanics.Id.toLowerCase}:${unwrappedName}"
+  private val rawName = s"${Minechanics.Id}:$name"
+  private val unlocalizedName = s"item.$rawName"
+
   setUnlocalizedName(name)
 
   setCreativeTab(tab)
-
-  GameRegistry.registerItem(this, name)
+  setNoRepair
 
   def this(name: String) = this(name, CreativeTabs.tabMisc)
 
-  override def getUnlocalizedName() = s"item.${Minechanics.Id.toLowerCase}:$unlocalizedName"
+  def register() = GameRegistry.registerItem(this, name)
+
+  override def getUnlocalizedName() = unlocalizedName
 
   override def getUnlocalizedName(stack: ItemStack) = getUnlocalizedName
 
   @SideOnly(Side.CLIENT)
-  override def registerIcons(iconRegister: IIconRegister) = iconRegister.registerIcon(unwrappedName)
+  override def registerIcons(iconRegister: IIconRegister) = itemIcon = iconRegister.registerIcon(rawName)
 }
