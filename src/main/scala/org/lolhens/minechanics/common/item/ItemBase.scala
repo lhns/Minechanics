@@ -10,6 +10,8 @@ import cpw.mods.fml.common.registry.GameRegistry
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.util.IIcon
 import net.minecraft.entity.player.EntityPlayer
+import org.lolhens.minechanics.client.texture.Textures
+import ItemBase._
 
 class ItemBase(name: String, tab: CreativeTabs) extends Item {
   val rawName = s"${Minechanics.Id}:$name"
@@ -29,5 +31,16 @@ class ItemBase(name: String, tab: CreativeTabs) extends Item {
   override def getUnlocalizedName(stack: ItemStack) = getUnlocalizedName
 
   @SideOnly(Side.CLIENT)
-  override def registerIcons(iconRegister: IIconRegister) = itemIcon = iconRegister.registerIcon(rawName)
+  override def registerIcons(iconRegister: IIconRegister) = {
+    if (itemsRegistered == null || itemsRegistered == this) {
+      //Resources.registerIcons("items", iconRegister)
+      itemsRegistered = this
+
+    }
+    //if (Resources.icons contains s"items.$name") itemIcon = Resources.icons(s"items.$name")
+  }
+}
+
+object ItemBase {
+  private var itemsRegistered: ItemBase = null
 }

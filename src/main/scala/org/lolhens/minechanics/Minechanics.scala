@@ -11,6 +11,8 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent
 import cpw.mods.fml.common.SidedProxy
 import org.lolhens.minechanics.common.config.Configurator
 import scala.collection._
+import com.dafttech.nio.file.PathUtil
+import com.dafttech.classfile.URLClassLocation
 
 @Mod(modid = Minechanics.Id, name = Minechanics.Name, version = Minechanics.Version, modLanguage = "scala", canBeDeactivated = false, guiFactory = "org.lolhens.minechanics.client.config.gui.ConfigGuiFactory")
 object Minechanics {
@@ -19,6 +21,7 @@ object Minechanics {
   final val Version = "@VERSION@"
   final val McVersion = "1.7.10"
   final val AccessTransformer = "minechanics_at.cfg"
+  val location = PathUtil.get(URLClassLocation.getClassSourceURL(getClass()))
 
   @SidedProxy(clientSide = "org.lolhens.minechanics.client.ClientProxy", serverSide = "org.lolhens.minechanics.server.ServerProxy")
   var proxy: Proxy = null

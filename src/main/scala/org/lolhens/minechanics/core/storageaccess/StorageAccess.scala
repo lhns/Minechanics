@@ -7,14 +7,13 @@ trait StorageAccess extends Dynamic {
     if (name.matches("_\\d+"))
       apply(name.substring(1).toInt)
     else
-      get(name)
+      apply(name)
   }
-  def apply(i: Int): StorageAccess = get(String.valueOf(i))
+  def apply(i: Int): StorageAccess = apply(String.valueOf(i))
+  def apply(i: String): StorageAccess
 
   def foreach(f: (StorageAccess) => Unit)
   def map[B](f: (Any) => B): Iterable[B]
-
-  def get(key: String): StorageAccess
 
   def getStringValue(): String
   def getNumberValue(): Number

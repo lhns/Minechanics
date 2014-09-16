@@ -19,6 +19,13 @@ project/plugins/project/
 .settings/
 bin/
 
+#Idea
+*.iml
+*.ipr
+*.iws
+.idea/
+out/
+
 #Gradle
 .gradle/
 build/
