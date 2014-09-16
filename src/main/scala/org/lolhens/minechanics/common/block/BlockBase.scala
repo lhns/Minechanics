@@ -10,8 +10,8 @@ import cpw.mods.fml.common.registry.GameRegistry
 import net.minecraft.creativetab.CreativeTabs
 
 class BlockBase(name: String, material: Material, tab: CreativeTabs) extends Block(material) {
-  private val rawName = s"${Minechanics.Id}:$name"
-  private val unlocalizedName = s"tile.$rawName"
+  val rawName = s"${Minechanics.Id}:$name"
+  val unlocalizedName = s"tile.$rawName"
 
   setBlockName(name)
 

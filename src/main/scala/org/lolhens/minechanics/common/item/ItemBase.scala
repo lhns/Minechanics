@@ -12,8 +12,8 @@ import net.minecraft.util.IIcon
 import net.minecraft.entity.player.EntityPlayer
 
 class ItemBase(name: String, tab: CreativeTabs) extends Item {
-  private val rawName = s"${Minechanics.Id}:$name"
-  private val unlocalizedName = s"item.$rawName"
+  val rawName = s"${Minechanics.Id}:$name"
+  val unlocalizedName = s"item.$rawName"
 
   setUnlocalizedName(name)
 
