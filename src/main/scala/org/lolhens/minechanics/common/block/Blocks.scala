@@ -6,10 +6,10 @@ import org.lolhens.minechanics.Minechanics
 @GameRegistry.ObjectHolder(Minechanics.Id)
 object Blocks {
   val foliage = new BlockFoliage
-  val test = new BlockTest
+  val hay = new BlockHay
 
   def register = {
     foliage.register
-    test.register
+    hay.register
   }
 }

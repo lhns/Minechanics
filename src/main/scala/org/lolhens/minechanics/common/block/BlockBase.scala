@@ -17,7 +17,7 @@ class BlockBase(name: String, material: Material, tab: CreativeTabs) extends Blo
 
   setCreativeTab(tab)
 
-  def this(name: String, tab: CreativeTabs) = this(name, Material.rock, tab)
+  def this(name: String, tab: CreativeTabs) = this(name, Material.gourd, tab)
   def this(name: String) = this(name, CreativeTabs.tabMisc)
 
   def register() = GameRegistry.registerBlock(this, name)
