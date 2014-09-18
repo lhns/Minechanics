@@ -2,6 +2,7 @@ package org.lolhens.minechanics.core.storageaccess.nbt
 
 import net.minecraft.nbt.NBTTagList
 import org.lolhens.minechanics.core.storageaccess.StorageAccess
+
 import scala.collection.JavaConversions._
 
 class NBTList(override val obj: NBTTagList) extends ValidNBTObject[NBTTagList](obj) {

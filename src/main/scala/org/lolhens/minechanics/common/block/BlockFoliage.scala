@@ -1,10 +1,9 @@
 package org.lolhens.minechanics.common.block
 
-import cpw.mods.fml.relauncher.SideOnly
-import cpw.mods.fml.relauncher.Side
+import cpw.mods.fml.relauncher.{Side, SideOnly}
 import net.minecraft.block.material.Material
-import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.client.renderer.texture.IIconRegister
+import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.util.IIcon
 
 class BlockFoliage extends BlockBase("foliage", Material.grass, CreativeTabs.tabMaterials) {

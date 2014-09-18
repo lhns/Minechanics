@@ -1,6 +1,6 @@
 package org.lolhens.minechanics.core.asm
 
-import collection._
+import scala.collection._
 
 object Insns {
   val insns = mutable.Map[String, Insn]()
@@ -10,6 +10,7 @@ object Insns {
     insns += name -> insn
 
     override def toString = name
+
     def getType = opcode
   }
 

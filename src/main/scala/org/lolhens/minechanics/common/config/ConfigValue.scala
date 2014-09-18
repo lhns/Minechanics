@@ -1,11 +1,11 @@
 package org.lolhens.minechanics.common.config
 
-import reflect.runtime.universe._
-import net.minecraftforge.common.config.Configuration
 import net.minecraft.block.Block
-import scala.reflect.ClassTag
+import net.minecraftforge.common.config.Configuration
 import org.lolhens.minechanics.common.util.UnlocalizedNameUtil
 import org.lolhens.minechanics.core.util.LogHelper
+
+import scala.reflect.runtime.universe._
 
 class ConfigValue(field: FieldMirror) {
   val default = field.get

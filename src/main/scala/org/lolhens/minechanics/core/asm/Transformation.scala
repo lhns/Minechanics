@@ -1,7 +1,7 @@
 package org.lolhens.minechanics.core.asm
 
+import org.lolhens.minechanics.core.asm.Transformation._
 import org.objectweb.asm.tree.InsnList
-import Transformation._
 
 class Transformation(trigger: Trigger) {
   def transform(source: Array[Byte]): Array[Byte] = {
@@ -10,7 +10,9 @@ class Transformation(trigger: Trigger) {
 }
 
 object Transformation {
+
   class Trigger(insns: InsnList, pre: Boolean) {
 
   }
+
 }

@@ -1,21 +1,16 @@
 package org.lolhens.minechanics.client.config.gui
 
-import cpw.mods.fml.client.config.GuiConfig
-import net.minecraft.client.gui.GuiScreen
-import cpw.mods.fml.client.config.IConfigElement
-import org.lolhens.minechanics.common.config.Configurator
-import org.lolhens.minechanics.client.config.gui.element.ConfigElementLabel
-import net.minecraftforge.common.config.ConfigElement
-import org.lolhens.minechanics.Minechanics
+import cpw.mods.fml.client.config.{ConfigGuiType, GuiConfig, IConfigElement}
+import cpw.mods.fml.client.event.ConfigChangedEvent
 import cpw.mods.fml.common.FMLCommonHandler
 import cpw.mods.fml.common.eventhandler.SubscribeEvent
-import cpw.mods.fml.client.event.ConfigChangedEvent
-import org.lolhens.minechanics.core.util.LogHelper
+import net.minecraft.client.gui.GuiScreen
+import net.minecraftforge.common.config.{ConfigElement, Property}
+import org.lolhens.minechanics.Minechanics
+import org.lolhens.minechanics.client.config.gui.element.{ConfigElementBlock, ConfigElementLabel}
+import org.lolhens.minechanics.common.config.Configurator
+
 import scala.collection.JavaConversions._
-import net.minecraftforge.common.config.Property
-import org.lolhens.minechanics.client.config.gui.element.ConfigElementBlock
-import cpw.mods.fml.client.config.ConfigGuiType
-import java.lang.reflect.Field
 
 class ConfigGui(parent: GuiScreen) extends GuiConfig(parent, new java.util.ArrayList(), Minechanics.Id, false, false, Minechanics.Name) {
   addGuiElements(configElements, Minechanics.configurator)

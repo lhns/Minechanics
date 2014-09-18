@@ -1,14 +1,10 @@
 package org.lolhens.minechanics.core.asm
 
-import java.io.File
-import java.io.Reader
-import collection._
-import collection.JavaConversions._
-import org.objectweb.asm.tree.InsnList
-import org.objectweb.asm.tree.MethodNode
 import org.lolhens.minechanics.core.storageaccess._
 import org.lolhens.minechanics.core.storageaccess.json._
-import org.objectweb.asm.tree.InsnNode
+import org.objectweb.asm.tree.{InsnList, InsnNode, MethodNode}
+
+import scala.collection._
 
 object Transformations {
   val transformations = mutable.Map[String, Transformation]()

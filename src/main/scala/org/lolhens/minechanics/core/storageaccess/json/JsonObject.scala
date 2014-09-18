@@ -1,7 +1,8 @@
 package org.lolhens.minechanics.core.storageaccess.json
 
-import org.lolhens.minechanics.core.storageaccess._
 import com.google.gson.Gson
+import org.lolhens.minechanics.core.storageaccess._
+
 import scala.io
 
 object JsonObject extends EmptyStorageAccess {

@@ -1,13 +1,7 @@
 package org.lolhens.minechanics.core.storageaccess.nbt
 
-import org.lolhens.minechanics.core.storageaccess.EmptyStorageAccess
-import org.lolhens.minechanics.core.storageaccess.StorageAccess
-import net.minecraft.nbt.NBTBase
-import net.minecraft.nbt.NBTTagCompound
-import net.minecraft.nbt.NBTTagIntArray
-import net.minecraft.nbt.NBTTagList
-import net.minecraft.nbt.NBTTagByteArray
-import net.minecraft.nbt.NBTTagString
+import net.minecraft.nbt.{NBTBase, NBTTagByteArray, NBTTagCompound, NBTTagIntArray, NBTTagList, NBTTagString}
+import org.lolhens.minechanics.core.storageaccess.{EmptyStorageAccess, StorageAccess}
 
 object NBTObject extends EmptyStorageAccess {
   def fromAny(any: Any): StorageAccess = any match {

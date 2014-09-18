@@ -1,6 +1,5 @@
 package org.lolhens.minechanics.core.asm
 
-import org.lolhens.minechanics.core.util.LogHelper
 import net.minecraft.launchwrapper.IClassTransformer
 
 class ClassTransformer extends IClassTransformer {

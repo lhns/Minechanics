@@ -1,18 +1,12 @@
 package org.lolhens.minechanics
 
-import cpw.mods.fml.common.Mod
-import java.util.logging.Logger
-import cpw.mods.fml.common.event.FMLPreInitializationEvent
-import cpw.mods.fml.common.Mod.EventHandler
-import org.lolhens.minechanics.common.Proxy
-import cpw.mods.fml.common.event.FMLInitializationEvent
-import cpw.mods.fml.common.event.FMLPostInitializationEvent
-import cpw.mods.fml.common.event.FMLServerStartingEvent
-import cpw.mods.fml.common.SidedProxy
-import org.lolhens.minechanics.common.config.Configurator
-import scala.collection._
-import com.dafttech.nio.file.PathUtil
 import com.dafttech.classfile.URLClassLocation
+import com.dafttech.nio.file.PathUtil
+import cpw.mods.fml.common.Mod.EventHandler
+import cpw.mods.fml.common.{Mod, SidedProxy}
+import cpw.mods.fml.common.event.{FMLInitializationEvent, FMLPostInitializationEvent, FMLPreInitializationEvent, FMLServerStartingEvent}
+import org.lolhens.minechanics.common.Proxy
+import org.lolhens.minechanics.common.config.Configurator
 
 @Mod(modid = Minechanics.Id, name = Minechanics.Name, version = Minechanics.Version, modLanguage = "scala", canBeDeactivated = false, guiFactory = "org.lolhens.minechanics.client.config.gui.ConfigGuiFactory")
 object Minechanics {

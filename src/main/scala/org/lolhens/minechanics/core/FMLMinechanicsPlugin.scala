@@ -1,24 +1,26 @@
 package org.lolhens.minechanics.core
 
-import org.lolhens.minechanics.Minechanics
-import cpw.mods.fml.relauncher.IFMLLoadingPlugin
 import java.io.File
-import cpw.mods.fml.relauncher.IFMLCallHook
-import org.lolhens.minechanics.core.util.LogHelper
+
+import cpw.mods.fml.relauncher.{IFMLCallHook, IFMLLoadingPlugin}
+import org.lolhens.minechanics.Minechanics
+import org.lolhens.minechanics.core.FMLMinechanicsPlugin._
 import org.lolhens.minechanics.core.asm.ClassTransformer
-import FMLMinechanicsPlugin._
-import com.google.gson.Gson
-import scala.io
 import org.lolhens.minechanics.core.storageaccess.json.JsonObject
+import org.lolhens.minechanics.core.util.LogHelper
 
 @IFMLLoadingPlugin.Name(Minechanics.Name)
 @IFMLLoadingPlugin.MCVersion(Minechanics.McVersion)
 @IFMLLoadingPlugin.TransformerExclusions(Array("org.lolhens.minechanics.core"))
 class FMLMinechanicsPlugin extends IFMLLoadingPlugin {
   override def getASMTransformerClass = Array(classOf[ClassTransformer].getName)
+
   override def getModContainerClass = null
+
   override def getAccessTransformerClass = null
+
   override def getSetupClass = classOf[SetupClass].getName
+
   override def injectData(data: java.util.Map[String, Object]) = {}
 }
 
@@ -35,8 +37,10 @@ object FMLMinechanicsPlugin {
       LogHelper.fatal(root._3)
       null
     }
+
     override def injectData(data: java.util.Map[String, Object]) = location = data.get("coremodLocation").asInstanceOf[File]
   }
 
   class AccessTransformer extends cpw.mods.fml.common.asm.transformers.AccessTransformer(Minechanics.AccessTransformer) {}
+
 }
