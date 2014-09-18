@@ -35,7 +35,13 @@ minecraft {
     runDir = "run"
 }
 
+configurations {
+    extractIntoJar
+}
+
 dependencies {
+    compile project(":EventManager")
+	extractIntoJar project(":EventManager")
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"
@@ -74,6 +80,7 @@ jar {
     manifest {
         attributes 'FMLAT': 'minechanics_at.cfg'
     }
+	from configurations.extractIntoJar.collect { it.isDirectory() ? it : zipTree(it) }
 }
 
 task sourceJar(type: Jar) {
