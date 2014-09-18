@@ -21,7 +21,7 @@ object Minechanics {
   final val Version = "@VERSION@"
   final val McVersion = "1.7.10"
   final val AccessTransformer = "minechanics_at.cfg"
-  val location = PathUtil.get(URLClassLocation.getClassSourceURL(getClass()))
+  val location = PathUtil.get(URLClassLocation.getClassSourceURL(getClass))
 
   @SidedProxy(clientSide = "org.lolhens.minechanics.client.ClientProxy", serverSide = "org.lolhens.minechanics.server.ServerProxy")
   var proxy: Proxy = null

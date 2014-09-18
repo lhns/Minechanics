@@ -10,7 +10,7 @@ import net.minecraft.world.World
 class BlockHay extends BlockBase("hay") {
   setHardness(1)
 
-  override def isOpaqueCube() = false
+  override def isOpaqueCube = false
 
   override def onFallenUpon(world: World, x: Int, y: Int, z: Int, entity: Entity, speed: Float): Unit = if (speed > 2) {
     world.setBlockToAir(x, y, z)

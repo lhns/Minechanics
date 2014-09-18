@@ -15,13 +15,14 @@ class Proxy {
     Minechanics.configurator = new Configurator(event, Config)
     Minechanics.configurator.synch
 
+    loadTextures
+
     Items.register
     Blocks.register
   }
-
   def init(event: FMLInitializationEvent) = {}
-
   def postInit(event: FMLPostInitializationEvent) = {}
-
   def serverStart(event: FMLServerStartingEvent) = {}
+
+  def loadTextures = {}
 }

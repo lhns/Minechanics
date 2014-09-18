@@ -1,19 +1,14 @@
 package org.lolhens.minechanics.common.item
 
-import net.minecraft.item.Item
-import org.lolhens.minechanics.Minechanics
-import net.minecraft.item.ItemStack
-import net.minecraft.client.renderer.texture.IIconRegister
-import cpw.mods.fml.relauncher.SideOnly
-import cpw.mods.fml.relauncher.Side
 import cpw.mods.fml.common.registry.GameRegistry
+import cpw.mods.fml.relauncher.{Side, SideOnly}
 import net.minecraft.creativetab.CreativeTabs
-import net.minecraft.util.IIcon
-import net.minecraft.entity.player.EntityPlayer
+import net.minecraft.item.{Item, ItemStack}
+import org.lolhens.minechanics.Minechanics
 import org.lolhens.minechanics.client.texture.Textures
-import ItemBase._
+import org.lolhens.minechanics.client.texture.Textures.IOnTextureRegistered
 
-class ItemBase(name: String, tab: CreativeTabs) extends Item {
+class ItemBase(name: String, tab: CreativeTabs) extends Item with IOnTextureRegistered {
   val rawName = s"${Minechanics.Id}:$name"
   val unlocalizedName = s"item.$rawName"
 
@@ -24,23 +19,15 @@ class ItemBase(name: String, tab: CreativeTabs) extends Item {
 
   def this(name: String) = this(name, CreativeTabs.tabMisc)
 
-  def register() = GameRegistry.registerItem(this, name)
+  def register = GameRegistry.registerItem(this, name)
 
-  override def getUnlocalizedName() = unlocalizedName
+  override def getUnlocalizedName = unlocalizedName
 
   override def getUnlocalizedName(stack: ItemStack) = getUnlocalizedName
 
   @SideOnly(Side.CLIENT)
-  override def registerIcons(iconRegister: IIconRegister) = {
-    if (itemsRegistered == null || itemsRegistered == this) {
-      //Resources.registerIcons("items", iconRegister)
-      itemsRegistered = this
-
-    }
-    //if (Resources.icons contains s"items.$name") itemIcon = Resources.icons(s"items.$name")
+  override def onTextureRegistered = {
+    val textureName = s"items.${name.toLowerCase}"
+    if (Textures.icons contains textureName) itemIcon = Textures.icons(textureName)
   }
-}
-
-object ItemBase {
-  private var itemsRegistered: ItemBase = null
 }

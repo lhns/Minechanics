@@ -1,20 +1,17 @@
 package org.lolhens.minechanics.client.texture
 
-import collection._
-import com.dafttech.nio.file.PathUtil
-import org.lolhens.minechanics.core.FMLMinechanicsPlugin
-import org.lolhens.minechanics.core.util.LogHelper
-import com.dafttech.classfile.URLClassLocation
-import org.lolhens.minechanics.Minechanics
-import net.minecraft.util.IIcon
-import net.minecraft.client.renderer.texture.IIconRegister
-import java.nio.file.Files
-import java.nio.file.SimpleFileVisitor
-import java.nio.file.Path
-import java.nio.file.FileVisitResult
 import java.nio.file.attribute.BasicFileAttributes
-import cpw.mods.fml.relauncher.SideOnly
-import cpw.mods.fml.relauncher.Side
+import java.nio.file.{FileVisitResult, Files, Path, SimpleFileVisitor}
+
+import cpw.mods.fml.common.eventhandler.SubscribeEvent
+import net.minecraft.block.Block
+import net.minecraft.client.renderer.texture.IIconRegister
+import net.minecraft.item.Item
+import net.minecraft.util.IIcon
+import net.minecraftforge.client.event.TextureStitchEvent
+import org.lolhens.minechanics.Minechanics
+
+import scala.collection._
 
 object Textures {
   val textureLocation = Minechanics.location.resolve(s"assets/${Minechanics.Id}/textures")
@@ -31,12 +28,42 @@ object Textures {
     })
   }
 
-  def register(path: String, iconRegister: IIconRegister) {
+  def register(path: String, iconRegister: IIconRegister) = {
     for (textureFile <- textureFiles) {
-      println(textureLocation.relativize(textureFile).getParent)
-      val textureFileName = textureFile.getFileName.toString
-      val textureName = textureFileName.substring(0, textureFileName.lastIndexOf("."))
-      //icons +=
+      val texturePath = textureLocation.relativize(textureFile).getParent.toString.toLowerCase
+      if (texturePath == path) {
+        val textureFileName = textureFile.getFileName.toString
+        val textureName = textureFileName.substring(0, textureFileName.lastIndexOf("."))
+        if (!textureName.startsWith("anim")) icons += s"$path.${textureName.toLowerCase}" -> iconRegister.registerIcon(s"${Minechanics.Id}:$textureName")
+      }
     }
   }
+
+  def notifyRegister(iterator: java.util.Iterator[_]): Unit = {
+    while (iterator.hasNext) {
+      val any: Any = iterator.next
+      any match {
+        case any: IOnTextureRegistered => any.onTextureRegistered
+      }
+    }
+  }
+
+  @SubscribeEvent
+  def onTextureStitchPre(event: TextureStitchEvent.Pre) = {
+    val textureMap = event.map
+    val textureType = textureMap.getTextureType
+    register(textureType match {
+      case 0 => "blocks"
+      case 1 => "items"
+    }, textureMap)
+    notifyRegister(textureType match {
+      case 0 => Block.blockRegistry.iterator
+      case 1 => Item.itemRegistry.iterator
+    })
+  }
+
+  trait IOnTextureRegistered {
+    def onTextureRegistered: Unit
+  }
+
 }

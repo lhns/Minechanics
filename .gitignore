@@ -19,7 +19,7 @@ project/plugins/project/
 .settings/
 bin/
 
-#Idea
+#IntelliJ
 *.iml
 *.ipr
 *.iws

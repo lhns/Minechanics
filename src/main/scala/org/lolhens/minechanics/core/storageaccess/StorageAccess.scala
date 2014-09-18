@@ -15,17 +15,17 @@ trait StorageAccess extends Dynamic {
   def foreach(f: (StorageAccess) => Unit)
   def map[B](f: (Any) => B): Iterable[B]
 
-  def getStringValue(): String
-  def getNumberValue(): Number
-  def getDoubleValue(): Double = getNumberValue.doubleValue
-  def getFloatValue(): Float = getNumberValue.floatValue
-  def getIntegerValue(): Integer = getNumberValue.intValue
-  def getLongValue(): Long = getNumberValue.longValue
-  def getByteValue(): Byte = getNumberValue.byteValue
-  def getShortValue(): Short = getNumberValue.shortValue
-  def getBooleanValue(): Boolean = getNumberValue.intValue != 0
-  def get(): Any
-  def isValid(): Boolean
+  def getStringValue: String
+  def getNumberValue: Number
+  def getDoubleValue: Double = getNumberValue.doubleValue
+  def getFloatValue: Float = getNumberValue.floatValue
+  def getIntegerValue: Integer = getNumberValue.intValue
+  def getLongValue: Long = getNumberValue.longValue
+  def getByteValue: Byte = getNumberValue.byteValue
+  def getShortValue: Short = getNumberValue.shortValue
+  def getBooleanValue: Boolean = getNumberValue.intValue != 0
+  def get: Any
+  def isValid: Boolean
 
   def fromAny(any: Any): StorageAccess
 }

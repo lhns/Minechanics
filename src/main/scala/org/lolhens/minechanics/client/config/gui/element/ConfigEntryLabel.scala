@@ -18,11 +18,11 @@ class ConfigEntryLabel(owningScreen: GuiConfig, owningEntryList: GuiConfigEntrie
   override def keyTyped(c: Char, i: Int) = {}
   override def updateCursorCounter() = {}
   override def mouseClicked(i: Int, j: Int, k: Int) = {}
-  override def isDefault() = true
+  override def isDefault = true
   override def setToDefault() = {}
-  override def isChanged() = false
+  override def isChanged = false
   override def undoChanges() = {}
-  override def saveConfigElement() = false
-  override def getCurrentValues() = null
-  override def getCurrentValue2() = null
+  override def saveConfigElement = false
+  override def getCurrentValues = null
+  override def getCurrentValue2 = null
 }

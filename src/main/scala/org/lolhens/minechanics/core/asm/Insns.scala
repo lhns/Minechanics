@@ -9,8 +9,8 @@ object Insns {
     val insn = this
     insns += name -> insn
 
-    override def toString() = name
-    def getType() = opcode
+    override def toString = name
+    def getType = opcode
   }
 
   new Insn("nop", 0)

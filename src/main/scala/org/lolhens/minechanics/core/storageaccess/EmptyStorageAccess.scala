@@ -6,8 +6,8 @@ abstract class EmptyStorageAccess extends StorageAccess {
 
   override def apply(key: String): StorageAccess = fromAny(null)
 
-  override def getStringValue(): String = null
-  def getNumberValue(): Number = 0
-  override def get(): Any = null
-  override def isValid() = false
+  override def getStringValue: String = null
+  def getNumberValue: Number = 0
+  override def get: Any = null
+  override def isValid = false
 }

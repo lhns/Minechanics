@@ -7,9 +7,11 @@ import org.lolhens.minechanics.Minechanics
 object Blocks {
   val foliage = new BlockFoliage
   val hay = new BlockHay
+  val oil = new BlockOil
 
   def register = {
     foliage.register
     hay.register
+    oil.register
   }
 }

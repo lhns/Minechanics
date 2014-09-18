@@ -15,10 +15,10 @@ import org.lolhens.minechanics.core.storageaccess.json.JsonObject
 @IFMLLoadingPlugin.MCVersion(Minechanics.McVersion)
 @IFMLLoadingPlugin.TransformerExclusions(Array("org.lolhens.minechanics.core"))
 class FMLMinechanicsPlugin extends IFMLLoadingPlugin {
-  override def getASMTransformerClass() = Array(classOf[ClassTransformer].getName)
-  override def getModContainerClass() = null
-  override def getAccessTransformerClass() = null
-  override def getSetupClass() = classOf[SetupClass].getName
+  override def getASMTransformerClass = Array(classOf[ClassTransformer].getName)
+  override def getModContainerClass = null
+  override def getAccessTransformerClass = null
+  override def getSetupClass = classOf[SetupClass].getName
   override def injectData(data: java.util.Map[String, Object]) = {}
 }
 
@@ -26,7 +26,7 @@ object FMLMinechanicsPlugin {
   var location: File = null;
 
   class SetupClass extends IFMLCallHook {
-    override def call() = {
+    override def call = {
       LogHelper.info("coremod loaded")
 
       val root = JsonObject.fromFile("E:/test.json")
