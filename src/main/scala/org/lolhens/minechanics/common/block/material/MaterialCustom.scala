@@ -21,7 +21,7 @@ class MaterialCustom() extends Material(MapColor.airColor) {
 
   override def blocksMovement: Boolean = if (block == null) super.blocksMovement else block.getBlocksMovement
 
-  override def getCanBurn: Boolean = if (block == null) super.getCanBurn else block.getCanBurn
+  override def getCanBurn: Boolean = if (block == null) super.getCanBurn else block.isFlammable
 
   override def isReplaceable: Boolean = if (block == null) super.isReplaceable else block.isReplaceable
 
@@ -47,7 +47,7 @@ object MaterialCustom {
 
     def getBlocksMovement: Boolean = true
 
-    def getCanBurn: Boolean = false
+    def isFlammable: Boolean = false
 
     def isReplaceable: Boolean = false
 

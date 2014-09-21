@@ -8,7 +8,9 @@ import net.minecraft.block.Block
 class BlockOil extends BlockBase("Oil") {
   setStepSound(Block.soundTypeSnow)
 
-  override def getRenderBlockPass: Int = 1
+  //override def getRenderBlockPass: Int = 1
 
   override def isOpaqueCube = false
+
+  override def getRenderType: Int = 20
 }

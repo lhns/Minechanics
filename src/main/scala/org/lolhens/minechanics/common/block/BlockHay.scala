@@ -6,7 +6,8 @@ import net.minecraft.block.Block
 import net.minecraft.entity.Entity
 import net.minecraft.init.Items
 import net.minecraft.item.{Item, ItemStack}
-import net.minecraft.world.World
+import net.minecraft.world.{IBlockAccess, World}
+import net.minecraftforge.common.util.ForgeDirection
 
 class BlockHay extends BlockBase("hay") {
   setHardness(1)
@@ -20,8 +21,12 @@ class BlockHay extends BlockBase("hay") {
     entity.fallDistance = 0
   }
 
-
   override def getItemDropped(p_149650_1_ : Int, p_149650_2_ : Random, p_149650_3_ : Int): Item = Items.wheat
 
   override def quantityDropped(p_149745_1_ : Random): Int = 4
+
+  override def getFlammability(world: IBlockAccess, x: Int, y: Int, z: Int, face: ForgeDirection): Int = 250
+
+  override def getFireSpreadSpeed(world: IBlockAccess, x: Int, y: Int, z: Int, face: ForgeDirection): Int = 80
+
 }
