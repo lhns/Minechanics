@@ -10,7 +10,7 @@ class Texture(file: TextureFile, minU: Float, minV: Float, deltaU: Float, deltaV
     file.bind
     tessellator.startDrawingQuads
 
-    for (minY <- 0 until areaH by texH; minX <- 0 until areaW by texW) {
+    for (minY <- 0f until areaH by texH; minX <- 0f until areaW by texW) {
       val (maxX, maxY) = (minX + texW, minY + texH)
 
       val maxU = minU + Math.min(deltaU, (areaW - minX) / texW * deltaU)

@@ -2,28 +2,28 @@ package org.lolhens.minechanics.common.item
 
 import cpw.mods.fml.common.registry.GameRegistry
 import cpw.mods.fml.relauncher.{Side, SideOnly}
+import net.minecraft.client.renderer.texture.IIconRegister
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.item.{Item, ItemStack}
 import org.lolhens.minechanics.Minechanics
 import org.lolhens.minechanics.client.texture.Textures
 import org.lolhens.minechanics.client.texture.Textures.IOnTextureRegistered
 
-class ItemBase(name: String, tab: CreativeTabs) extends Item with IOnTextureRegistered {
+class ItemBase(name: String) extends Item with IOnTextureRegistered {
   val rawName = s"${Minechanics.Id}:$name"
   val unlocalizedName = s"item.$rawName"
 
   setUnlocalizedName(name)
-
-  setCreativeTab(tab)
-  setNoRepair
-
-  def this(name: String) = this(name, CreativeTabs.tabMisc)
+  setCreativeTab(CreativeTabs.tabMisc)
 
   def register = GameRegistry.registerItem(this, name)
 
   override def getUnlocalizedName = unlocalizedName
 
   override def getUnlocalizedName(stack: ItemStack) = getUnlocalizedName
+
+  @SideOnly(Side.CLIENT)
+  override def registerIcons(iconRegister: IIconRegister): Unit = {}
 
   @SideOnly(Side.CLIENT)
   override def onTextureRegistered = {

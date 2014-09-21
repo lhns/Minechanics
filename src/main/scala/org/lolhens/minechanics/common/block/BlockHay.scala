@@ -2,6 +2,7 @@ package org.lolhens.minechanics.common.block
 
 import java.util.Random
 
+import net.minecraft.block.Block
 import net.minecraft.entity.Entity
 import net.minecraft.init.Items
 import net.minecraft.item.{Item, ItemStack}
@@ -9,6 +10,7 @@ import net.minecraft.world.World
 
 class BlockHay extends BlockBase("hay") {
   setHardness(1)
+  setStepSound(Block.soundTypeGrass)
 
   override def isOpaqueCube = false
 

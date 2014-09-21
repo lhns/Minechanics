@@ -44,6 +44,7 @@ object Textures {
       val any: Any = iterator.next
       any match {
         case any: IOnTextureRegistered => any.onTextureRegistered
+        case _ =>
       }
     }
   }

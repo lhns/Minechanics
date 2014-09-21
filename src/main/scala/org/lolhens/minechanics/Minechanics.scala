@@ -3,8 +3,8 @@ package org.lolhens.minechanics
 import com.dafttech.classfile.URLClassLocation
 import com.dafttech.nio.file.PathUtil
 import cpw.mods.fml.common.Mod.EventHandler
-import cpw.mods.fml.common.{Mod, SidedProxy}
 import cpw.mods.fml.common.event.{FMLInitializationEvent, FMLPostInitializationEvent, FMLPreInitializationEvent, FMLServerStartingEvent}
+import cpw.mods.fml.common.{Mod, SidedProxy}
 import org.lolhens.minechanics.common.Proxy
 import org.lolhens.minechanics.common.config.Configurator
 
