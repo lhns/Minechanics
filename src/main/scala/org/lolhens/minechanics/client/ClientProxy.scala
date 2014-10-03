@@ -1,7 +1,6 @@
 package org.lolhens.minechanics.client
 
 import cpw.mods.fml.common.event.FMLPreInitializationEvent
-import net.minecraft.block.Block
 import net.minecraftforge.common.MinecraftForge
 import org.lolhens.minechanics.client.texture.Textures
 import org.lolhens.minechanics.common.Proxy
@@ -9,7 +8,7 @@ import org.lolhens.minechanics.common.Proxy
 class ClientProxy extends Proxy {
 
 
-  override def preInit(event: FMLPreInitializationEvent): Block = {
+  override def preInit(event: FMLPreInitializationEvent) = {
     MinecraftForge.EVENT_BUS.register(Textures)
     super.preInit(event)
   }

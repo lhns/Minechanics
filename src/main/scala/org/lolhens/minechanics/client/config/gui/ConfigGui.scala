@@ -24,7 +24,7 @@ class ConfigGui(parent: GuiScreen) extends GuiConfig(parent, new java.util.Array
       val categoryName = iterator.next
       val category = config.getCategory(categoryName)
       elements.add(new ConfigElementLabel(category, firstLetterToUpperCase(categoryName)))
-      elements.addAll(for (element <- new ConfigElement[Object](category).getChildElements().toSet[IConfigElement[_]]) yield element match {
+      elements.addAll(for (element <- new ConfigElement[Object](category).getChildElements()) yield element match {
         case element if element.isProperty && element.getType == ConfigGuiType.STRING && element.getName.startsWith("block:") =>
           new ConfigElementBlock(ConfigGui.ConfigElementPropField.get(element).asInstanceOf[Property])
         case element => element
@@ -37,6 +37,6 @@ class ConfigGui(parent: GuiScreen) extends GuiConfig(parent, new java.util.Array
 }
 
 object ConfigGui {
-  val ConfigElementPropField = classOf[ConfigElement[_]].getDeclaredField("prop");
+  val ConfigElementPropField = classOf[ConfigElement[_]].getDeclaredField("prop")
   ConfigElementPropField.setAccessible(true)
 }
