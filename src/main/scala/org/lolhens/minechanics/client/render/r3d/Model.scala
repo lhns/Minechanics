@@ -13,7 +13,7 @@ trait Model {
   var translation = new Vec3f((0, 0, 0))
   var rotation = new Vec3f((0, 0, 0))
 
-  final def renderModel(translation: Vec3f)(rotation: Vec3f = new Vec3f((0,0,0))): Unit = {
+  final def renderModel(translation: Vec3f)(rotation: Vec3f = new Vec3f((0, 0, 0))): Unit = {
     renderModel(this.translation + translation)(this.rotation + rotation)
     //subModels.foreach(_.renderModel(vertexList))
   }
