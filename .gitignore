@@ -1,2 +1,8 @@
-/bin/*
-/bin
+.settings
+.metadata
+.gradle
+.git
+bin
+build
+libs
+run
