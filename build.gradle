@@ -27,7 +27,7 @@ configFile.withReader {
 }
 
 group = "org.lolhens.minechanics" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "minechanics"
+archivesBaseName = "Minechanics"
 version = config.mod_version
 
 minecraft {
