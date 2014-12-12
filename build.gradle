@@ -40,8 +40,8 @@ configurations {
 }
 
 dependencies {
-    compile project(":EventManager")
-    extractIntoJar project(":EventManager")
+    compile project(":LibEventManager")
+    extractIntoJar project(":LibEventManager")
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"
