@@ -25,6 +25,7 @@ bin/
 *.iws
 .idea/
 out/
+projectFilesBackup*/
 
 #Gradle
 .gradle/
