@@ -16,6 +16,7 @@ buildscript {
 }
 
 apply plugin: 'scala'
+apply plugin: 'idea'
 apply plugin: 'forge'
 
 ext.configFile = file "build.properties"
