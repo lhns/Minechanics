@@ -5,9 +5,7 @@ import java.nio.file.{FileVisitResult, Files, Path, SimpleFileVisitor}
 
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraft.block.Block
-import net.minecraft.client.renderer.texture.IIconRegister
 import net.minecraft.item.Item
-import net.minecraft.util.IIcon
 import net.minecraftforge.client.event.TextureStitchEvent
 import org.lolhens.minechanics.Minechanics
 

@@ -14,7 +14,5 @@ class ClientProxy extends Proxy {
   }
 
   override def loadTextures: Unit = {
-    Textures.load("items")
-    Textures.load("blocks")
   }
 }

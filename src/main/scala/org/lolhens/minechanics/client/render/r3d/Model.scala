@@ -1,6 +1,5 @@
 package org.lolhens.minechanics.client.render.r3d
 
-import net.minecraft.util.IIcon
 import org.lolhens.minechanics.client.util.Vec3f
 
 import scala.collection.mutable
