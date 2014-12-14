@@ -1,6 +1,6 @@
 package org.lolhens.minechanics.core.util
 
-import cpw.mods.fml.common.FMLLog
+import net.minecraftforge.fml.common.FMLLog
 import org.apache.logging.log4j.Level
 import org.lolhens.minechanics.Minechanics
 

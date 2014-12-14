@@ -1,6 +1,6 @@
 package org.lolhens.minechanics.server
 
-import cpw.mods.fml.common.event.FMLServerStartingEvent
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent
 import org.lolhens.minechanics.common.Proxy
 
 class ServerProxy extends Proxy {

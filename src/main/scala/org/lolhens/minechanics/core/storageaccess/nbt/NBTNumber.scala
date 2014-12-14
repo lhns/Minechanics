@@ -5,17 +5,17 @@ import net.minecraft.nbt._
 class NBTNumber(override val obj: NBTBase.NBTPrimitive) extends ValidNBTObject[NBTBase.NBTPrimitive](obj) {
   override def getNumberValue = getDoubleValue
 
-  override def getDoubleValue: Double = obj.func_150286_g
+  override def getDoubleValue: Double = obj.getDouble
 
-  override def getFloatValue: Float = obj.func_150288_h
+  override def getFloatValue: Float = obj.getFloat
 
-  override def getIntegerValue: Integer = obj.func_150287_d
+  override def getIntegerValue: Int = obj.getInt
 
-  override def getLongValue: Long = obj.func_150291_c
+  override def getLongValue: Long = obj.getLong
 
-  override def getByteValue: Byte = obj.func_150290_f
+  override def getByteValue: Byte = obj.getByte
 
-  override def getShortValue: Short = obj.func_150289_e
+  override def getShortValue: Short = obj.getShort
 
   override def getStringValue: String = String.valueOf(getDoubleValue)
 }

@@ -1,7 +1,7 @@
 package org.lolhens.minechanics.common.item
 
-import cpw.mods.fml.common.registry.GameRegistry
-import cpw.mods.fml.relauncher.{Side, SideOnly}
+import net.minecraftforge.fml.common.registry.GameRegistry
+import net.minecraftforge.fml.relauncher.{Side, SideOnly}
 import net.minecraft.client.renderer.texture.IIconRegister
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.item.{Item, ItemStack}

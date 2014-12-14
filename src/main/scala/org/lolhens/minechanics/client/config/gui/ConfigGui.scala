@@ -1,19 +1,20 @@
 package org.lolhens.minechanics.client.config.gui
 
-import cpw.mods.fml.client.config.{ConfigGuiType, GuiConfig, IConfigElement}
-import cpw.mods.fml.client.event.ConfigChangedEvent
-import cpw.mods.fml.common.FMLCommonHandler
-import cpw.mods.fml.common.eventhandler.SubscribeEvent
+import net.minecraftforge.fml.client.config.{ConfigGuiType, GuiConfig, IConfigElement}
+import net.minecraftforge.fml.client.event.ConfigChangedEvent
+import net.minecraftforge.fml.common.FMLCommonHandler
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraft.client.gui.GuiScreen
 import net.minecraftforge.common.config.{ConfigElement, Property}
 import org.lolhens.minechanics.Minechanics
 import org.lolhens.minechanics.client.config.gui.element.{ConfigElementBlock, ConfigElementLabel}
 import org.lolhens.minechanics.common.config.Configurator
+import java.util
 
 import scala.collection.JavaConversions._
 
 class ConfigGui(parent: GuiScreen) extends GuiConfig(parent, new java.util.ArrayList(), Minechanics.Id, false, false, Minechanics.Name) {
-  addGuiElements(configElements, Minechanics.configurator)
+  addGuiElements(configElements.asInstanceOf[util.List[ConfigElement[_]]], Minechanics.configurator)
   FMLCommonHandler.instance.bus.register(this)
 
   def addGuiElements(elements: java.util.List[IConfigElement[_]], configurator: Configurator[_]) = {

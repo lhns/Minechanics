@@ -1,6 +1,6 @@
 package org.lolhens.minechanics.client.config.gui.element
 
-import cpw.mods.fml.client.config.IConfigElement
+import net.minecraftforge.fml.client.config.IConfigElement
 import net.minecraftforge.common.config.ConfigCategory
 
 class ConfigElementLabel(ctgy: ConfigCategory, value: String) extends IConfigElement[Object] {

@@ -1,11 +1,11 @@
 package org.lolhens.minechanics.client.config.gui.element;
 
-import cpw.mods.fml.client.config.GuiConfig;
-import cpw.mods.fml.client.config.GuiConfigEntries;
-import cpw.mods.fml.client.config.IConfigElement;
+import net.minecraftforge.fml.client.config.GuiConfig;
+import net.minecraftforge.fml.client.config.GuiConfigEntries;
+import net.minecraftforge.fml.client.config.IConfigElement;
 
-public abstract class ListEntryBase extends cpw.mods.fml.client.config.GuiConfigEntries.ListEntryBase {
-    public ListEntryBase(GuiConfig owningScreen, GuiConfigEntries owningEntryList, IConfigElement<?> configElement) {
+public abstract class ListEntryBase extends net.minecraftforge.fml.client.config.GuiConfigEntries.ListEntryBase {
+    public ListEntryBase(GuiConfig owningScreen, GuiConfigEntries owningEntryList, IConfigElement configElement) {
         super(owningScreen, owningEntryList, configElement);
     }
 

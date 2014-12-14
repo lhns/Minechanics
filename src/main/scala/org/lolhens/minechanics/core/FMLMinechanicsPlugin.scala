@@ -2,7 +2,7 @@ package org.lolhens.minechanics.core
 
 import java.io.File
 
-import cpw.mods.fml.relauncher.{IFMLCallHook, IFMLLoadingPlugin}
+import net.minecraftforge.fml.relauncher.{IFMLCallHook, IFMLLoadingPlugin}
 import org.lolhens.minechanics.Minechanics
 import org.lolhens.minechanics.core.FMLMinechanicsPlugin._
 import org.lolhens.minechanics.core.asm.ClassTransformer

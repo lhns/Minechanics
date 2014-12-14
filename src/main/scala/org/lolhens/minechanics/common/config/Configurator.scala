@@ -1,6 +1,6 @@
 package org.lolhens.minechanics.common.config
 
-import cpw.mods.fml.common.event.FMLPreInitializationEvent
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import net.minecraftforge.common.config.Configuration
 
 import scala.collection.mutable.MutableList

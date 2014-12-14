@@ -1,6 +1,6 @@
 package org.lolhens.minechanics.client
 
-import cpw.mods.fml.common.event.FMLPreInitializationEvent
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import net.minecraftforge.common.MinecraftForge
 import org.lolhens.minechanics.client.texture.Textures
 import org.lolhens.minechanics.common.Proxy

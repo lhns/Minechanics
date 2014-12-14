@@ -1,6 +1,6 @@
 package org.lolhens.minechanics.client.config.gui.element
 
-import cpw.mods.fml.client.config.{GuiConfig, GuiConfigEntries, IConfigElement}
+import net.minecraftforge.fml.client.config.{GuiConfig, GuiConfigEntries, IConfigElement}
 import net.minecraft.client.renderer.Tessellator
 import org.lolhens.minechanics.common.util.UnlocalizedNameUtil
 
