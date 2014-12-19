@@ -5,7 +5,7 @@ import scala.collection._
 object Insns {
   val insns = mutable.Map[String, Insn]()
 
-  case class Insn(name: String, opcode: Integer) {
+  case class Insn(name: String, opcode: Int) {
     val insn = this
     insns += name -> insn
 
