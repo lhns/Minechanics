@@ -1,15 +1,13 @@
 package org.lolhens.minechanics.common.block
 
-import net.minecraftforge.fml.client.registry.RenderingRegistry
-import net.minecraftforge.fml.common.registry.GameRegistry
-import net.minecraftforge.fml.relauncher.{Side, SideOnly}
 import net.minecraft.block.Block
+import net.minecraftforge.fml.common.registry.GameRegistry
+
 //import net.minecraft.client.renderer.RenderBlocks
 //import net.minecraft.client.renderer.texture.IIconRegister
+
 import net.minecraft.creativetab.CreativeTabs
-import net.minecraft.world.IBlockAccess
 import org.lolhens.minechanics.Minechanics
-import org.lolhens.minechanics.client.texture.Textures
 import org.lolhens.minechanics.client.texture.Textures.IOnTextureRegistered
 import org.lolhens.minechanics.common.block.material.MaterialCustom
 import org.lolhens.minechanics.common.block.material.MaterialCustom.ICustomMaterial

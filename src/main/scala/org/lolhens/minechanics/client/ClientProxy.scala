@@ -1,7 +1,7 @@
 package org.lolhens.minechanics.client
 
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import net.minecraftforge.common.MinecraftForge
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import org.lolhens.minechanics.client.texture.Textures
 import org.lolhens.minechanics.common.Proxy
 

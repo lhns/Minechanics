@@ -1,12 +1,12 @@
 package org.lolhens.minechanics.common.item
 
 import net.minecraftforge.fml.common.registry.GameRegistry
-import net.minecraftforge.fml.relauncher.{Side, SideOnly}
+
 //import net.minecraft.client.renderer.texture.IIconRegister
+
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.item.{Item, ItemStack}
 import org.lolhens.minechanics.Minechanics
-import org.lolhens.minechanics.client.texture.Textures
 import org.lolhens.minechanics.client.texture.Textures.IOnTextureRegistered
 
 class ItemBase(name: String) extends Item with IOnTextureRegistered {

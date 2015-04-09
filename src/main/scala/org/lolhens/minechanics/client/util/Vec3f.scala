@@ -1,7 +1,6 @@
 package org.lolhens.minechanics.client.util
 
 //import com.dafttech.math.TrigonometryCache
-import org.lolhens.minechanics.client.util.Vec3f._
 
 /**
  * Created by LolHens on 21.09.2014.

@@ -1,7 +1,7 @@
 package org.lolhens.minechanics.common.block
 
-import net.minecraftforge.fml.relauncher.{Side, SideOnly}
 import net.minecraft.block.Block
+
 //import net.minecraft.client.renderer.texture.IIconRegister
 //import net.minecraft.util.IIcon
 

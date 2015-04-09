@@ -59,6 +59,8 @@ jar {
     manifest {
         if (project.hasProperty("mainClass")) attributes 'Main-Class': mainClass
         if (project.hasProperty("accessTransformer")) attributes 'FMLAT': accessTransformer
+        if (project.hasProperty("corePlugin")) attributes 'FMLCorePlugin': corePlugin
+        if (project.hasProperty("corePluginContainsMod")) attributes 'FMLCorePluginContainsFMLMod': corePluginContainsMod
     }
 }
 

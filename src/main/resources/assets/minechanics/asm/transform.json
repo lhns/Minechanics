@@ -1,67 +1,71 @@
 {
-	"vars": {
-		"insnLists": [
-			{
-				"name": "set1",
-				"insns": [
-					"",
-					""
-				]
-			}
-		],
-		"methods": [
-			{
-				"name": "m"
-				"desc": "s"
-			}
-		],
-		"triggers": [
-			{
-				"name": "t1",
-				"before": {
-					"insnList": "set1"
-				},
-				"after": {
-					"insnList": "set1"
-				}
-			}
-		],
-	}
-	"actions": [
-		{
-			"name": "",
-			"classes": [
-		    	class: "",
-		        methods: {
-			        add: [
-				        {
-						    "method": ""
-							"insns": ""
-						}
-		    		],
-			    	remove: [
-				        {
-						    "method": ""
-						}
-			    	],
-				    transform: [
-				        {
-					        "method": "m",
-    						"trigger": "t1",
-							"replace": "set1",
-							"insns": "set1"
-	    				}
-		        	]
-			    },
-				fields: {
-				    add: [
-					
-					]
-					remove: [
-					
-					]
-				}
-			]
-		}
-	]
+  "vars": {
+    "insnLists": [
+      {
+        "name": "set1",
+        "insns": [
+          "",
+          ""
+        ]
+      }
+    ],
+    "methods": [
+      {
+        "name": "m"
+        "desc": "s"
+      }
+    ],
+    "triggers": [
+      {
+        "name": "t1",
+        "before": {
+          "insnList": "set1"
+        },
+        "after": {
+          "insnList": "set1"
+        }
+      }
+    ],
+  }
+  "actions": [
+    {
+      "name": "",
+      "classes": [
+        class
+        :
+        "",
+        methods
+        :
+        {
+          add: [
+            {
+              "method": ""
+              "insns": ""
+            }
+          ],
+          remove: [
+            {
+              "method": ""
+            }
+          ],
+          transform: [
+            {
+              "method": "m",
+              "trigger": "t1",
+              "replace": "set1",
+              "insns": "set1"
+            }
+          ]
+        },
+        fields
+        :
+        {
+          add: [
+          ]
+          remove: [
+          ]
+        }
+      ]
+    }
+  ]
 }

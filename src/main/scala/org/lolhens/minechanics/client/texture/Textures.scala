@@ -1,13 +1,9 @@
 package org.lolhens.minechanics.client.texture
 
-import java.nio.file.attribute.BasicFileAttributes
-import java.nio.file.{FileVisitResult, Files, Path, SimpleFileVisitor}
+import java.nio.file.Path
 
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
-import net.minecraft.block.Block
-import net.minecraft.item.Item
 import net.minecraftforge.client.event.TextureStitchEvent
-import org.lolhens.minechanics.Minechanics
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 
 import scala.collection._
 

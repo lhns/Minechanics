@@ -1,7 +1,7 @@
 package org.lolhens.minechanics.client.render.r2d
 
-import net.minecraftforge.fml.client.FMLClientHandler
 import net.minecraft.util.ResourceLocation
+import net.minecraftforge.fml.client.FMLClientHandler
 import org.lwjgl.opengl.GL11
 
 /**

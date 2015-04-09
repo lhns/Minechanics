@@ -1,7 +1,7 @@
 package org.lolhens.minechanics.common.config
 
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import net.minecraftforge.common.config.Configuration
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 
 import scala.collection.mutable.MutableList
 import scala.reflect.ClassTag
@@ -17,7 +17,7 @@ class Configurator[T: TypeTag : ClassTag](configuration: Configuration, config: 
 
   private val mirror = runtimeMirror(getClass.getClassLoader)
 
-  for (field <- typeOf[T].members.collect { case m: MethodSymbol if m.isGetter => m}) {
+  for (field <- typeOf[T].members.collect { case m: MethodSymbol if m.isGetter => m }) {
     val fieldMirror = mirror.reflect(config).reflectField(field)
 
     fieldMirror.symbol.typeSignature match {
