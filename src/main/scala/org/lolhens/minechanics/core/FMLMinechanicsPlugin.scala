@@ -41,6 +41,6 @@ object FMLMinechanicsPlugin {
     override def injectData(data: java.util.Map[String, Object]) = location = data.get("coremodLocation").asInstanceOf[File]
   }
 
-  class AccessTransformer extends cpw.mods.fml.common.asm.transformers.AccessTransformer(Minechanics.AccessTransformer) {}
+  class AccessTransformer extends net.minecraftforge.fml.common.asm.transformers.AccessTransformer(Minechanics.AccessTransformer) {}
 
 }

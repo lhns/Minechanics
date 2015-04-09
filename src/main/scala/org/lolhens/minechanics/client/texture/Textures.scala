@@ -12,12 +12,12 @@ import org.lolhens.minechanics.Minechanics
 import scala.collection._
 
 object Textures {
-  val textureLocation = Minechanics.location.resolve(s"assets/${Minechanics.Id}/textures")
+  //val textureLocation = Minechanics.location.resolve(s"assets/${Minechanics.Id}/textures")
   val textureFiles = mutable.MutableList[Path]()
 
-  val icons = mutable.Map[String, IIcon]()
+  //val icons = mutable.Map[String, IIcon]()
 
-  def load(path: String) = {
+  /*def load(path: String) = {
     Files.walkFileTree(textureLocation, new SimpleFileVisitor[Path]() {
       override def visitFile(file: Path, attrs: BasicFileAttributes) = {
         if (file.getFileName.toString.toLowerCase.endsWith(".png")) textureFiles += file
@@ -35,7 +35,7 @@ object Textures {
         if (!textureName.startsWith("anim")) icons += s"$path.${textureName.toLowerCase}" -> iconRegister.registerIcon(s"${Minechanics.Id}:$textureName")
       }
     }
-  }
+  }*/
 
   def notifyRegister(iterator: java.util.Iterator[_]): Unit = {
     while (iterator.hasNext) {
@@ -50,7 +50,7 @@ object Textures {
   @SubscribeEvent
   def onTextureStitchPre(event: TextureStitchEvent.Pre) = {
     val textureMap = event.map
-    val textureType = textureMap.getTextureType
+    /*val textureType = textureMap.getTextureType
     register(textureType match {
       case 0 => "blocks"
       case 1 => "items"
@@ -58,7 +58,7 @@ object Textures {
     notifyRegister(textureType match {
       case 0 => Block.blockRegistry.iterator
       case 1 => Item.itemRegistry.iterator
-    })
+    })*/
   }
 
   trait IOnTextureRegistered {

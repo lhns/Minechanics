@@ -4,8 +4,8 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry
 import net.minecraftforge.fml.common.registry.GameRegistry
 import net.minecraftforge.fml.relauncher.{Side, SideOnly}
 import net.minecraft.block.Block
-import net.minecraft.client.renderer.RenderBlocks
-import net.minecraft.client.renderer.texture.IIconRegister
+//import net.minecraft.client.renderer.RenderBlocks
+//import net.minecraft.client.renderer.texture.IIconRegister
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.world.IBlockAccess
 import org.lolhens.minechanics.Minechanics
@@ -34,4 +34,6 @@ class BlockBase(name: String) extends Block(new MaterialCustom()) with IOnTextur
   override def getMobilityFlag = super[ICustomMaterial].getMobilityFlag
 
   override def isOpaqueCube = super[ICustomMaterial].isOpaqueCube
+
+  override def onTextureRegistered: Unit = ???
 }

@@ -2,7 +2,7 @@ package org.lolhens.minechanics.common.item
 
 import net.minecraftforge.fml.common.registry.GameRegistry
 import net.minecraftforge.fml.relauncher.{Side, SideOnly}
-import net.minecraft.client.renderer.texture.IIconRegister
+//import net.minecraft.client.renderer.texture.IIconRegister
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.item.{Item, ItemStack}
 import org.lolhens.minechanics.Minechanics
@@ -22,12 +22,13 @@ class ItemBase(name: String) extends Item with IOnTextureRegistered {
 
   override def getUnlocalizedName(stack: ItemStack) = getUnlocalizedName
 
-  @SideOnly(Side.CLIENT)
+  /*@SideOnly(Side.CLIENT)
   override def registerIcons(iconRegister: IIconRegister): Unit = {}
 
   @SideOnly(Side.CLIENT)
   override def onTextureRegistered = {
     val textureName = s"items.${name.toLowerCase}"
     if (Textures.icons contains textureName) itemIcon = Textures.icons(textureName)
-  }
+  }*/
+  override def onTextureRegistered: Unit = ???
 }

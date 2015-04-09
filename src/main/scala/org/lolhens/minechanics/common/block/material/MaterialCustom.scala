@@ -9,7 +9,7 @@ import org.lolhens.minechanics.common.block.material.MaterialCustom._
 class MaterialCustom() extends Material(MapColor.airColor) {
   var block: ICustomMaterial = null
 
-  override def getCanBlockGrass: Boolean = if (block == null) super.getCanBlockGrass else !block.getCanBlockGrass
+  //override def getCanBlockGrass: Boolean = if (block == null) super.getCanBlockGrass else !block.getCanBlockGrass
 
   override def getMaterialMobility: Int = if (block == null) super.getMaterialMobility else block.getMobilityFlag
 
@@ -27,7 +27,7 @@ class MaterialCustom() extends Material(MapColor.airColor) {
 
   override def isToolNotRequired: Boolean = if (block == null) super.isToolNotRequired else !block.isToolRequired
 
-  override def isAdventureModeExempt: Boolean = if (block == null) super.isAdventureModeExempt else block.isAdventureModeExempt
+  //override def isAdventureModeExempt: Boolean = if (block == null) super.isAdventureModeExempt else block.isAdventureModeExempt
 
   override def getMaterialMapColor: MapColor = if (block == null) super.getMaterialMapColor else block.getMapColor
 }

@@ -1,6 +1,6 @@
 package org.lolhens.minechanics.common.item
 
-import cpw.mods.fml.common.registry.GameRegistry
+import net.minecraftforge.fml.common.registry.GameRegistry
 import org.lolhens.minechanics.Minechanics
 
 @GameRegistry.ObjectHolder(Minechanics.Id)

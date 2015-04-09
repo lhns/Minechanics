@@ -21,11 +21,11 @@ trait Model {
 }
 
 object Model {
-  def getIconUV(icon: IIcon, iconMinU: Float, iconMinV: Float, iconMaxU: Float, iconMaxV: Float) = {
+  /*def getIconUV(icon: IIcon, iconMinU: Float, iconMinV: Float, iconMaxU: Float, iconMaxV: Float) = {
     val minU: Float = if (iconMinU < 0) icon.getMinU else if (iconMinU > 1) icon.getMaxU else icon.getInterpolatedU(iconMinU * 16)
     val minV: Float = if (iconMinV < 0) icon.getMinV else if (iconMinV > 1) icon.getMaxV else icon.getInterpolatedV(iconMinV * 16)
     val maxU: Float = if (iconMaxU < 0) icon.getMinU else if (iconMaxU > 1) icon.getMaxU else icon.getInterpolatedU(iconMaxU * 16)
     val maxV: Float = if (iconMaxV < 0) icon.getMinV else if (iconMaxV > 1) icon.getMaxV else icon.getInterpolatedV(iconMaxV * 16)
     (minU, minV, maxU, maxV)
-  }
+  }*/
 }

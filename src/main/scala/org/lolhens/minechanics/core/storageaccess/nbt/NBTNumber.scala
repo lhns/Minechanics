@@ -9,7 +9,7 @@ class NBTNumber(override val obj: NBTBase.NBTPrimitive) extends ValidNBTObject[N
 
   override def getFloatValue: Float = obj.getFloat
 
-  override def getIntegerValue: Int = obj.getInt
+  override def getIntegerValue: Integer = Integer.valueOf(obj.getInt)
 
   override def getLongValue: Long = obj.getLong
 

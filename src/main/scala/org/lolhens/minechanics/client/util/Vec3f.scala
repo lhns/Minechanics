@@ -1,6 +1,6 @@
 package org.lolhens.minechanics.client.util
 
-import com.dafttech.math.TrigonometryCache
+//import com.dafttech.math.TrigonometryCache
 import org.lolhens.minechanics.client.util.Vec3f._
 
 /**
@@ -26,13 +26,13 @@ case class Vec3f(val tuple: (Float, Float, Float)) extends AnyVal {
     val y: Float = this.y - origin.x
     val z: Float = this.z - origin.z
 
-    val sX: Float = trigonometryCache.sin(rot.x)
-    val sY: Float = trigonometryCache.sin(rot.y)
-    val sZ: Float = trigonometryCache.sin(rot.z)
+    val sX: Float = Math.sin(rot.x).toFloat
+    val sY: Float = Math.sin(rot.y).toFloat
+    val sZ: Float = Math.sin(rot.z).toFloat
 
-    val cX: Float = trigonometryCache.cos(rot.x)
-    val cY: Float = trigonometryCache.cos(rot.y)
-    val cZ: Float = trigonometryCache.cos(rot.z)
+    val cX: Float = Math.cos(rot.x).toFloat
+    val cY: Float = Math.cos(rot.y).toFloat
+    val cZ: Float = Math.cos(rot.z).toFloat
 
     ((cZ * (cY * x + sY * (sX * y + cX * z)) - sZ * (cX * y - sX * z)) + origin.x,
       (sZ * (cY * x + sY * (sX * y + cX * z)) + cZ * (cX * y - sX * z)) + origin.y,
@@ -41,7 +41,7 @@ case class Vec3f(val tuple: (Float, Float, Float)) extends AnyVal {
 }
 
 object Vec3f {
-  val trigonometryCache = new TrigonometryCache(8)
+  //val trigonometryCache = new TrigonometryCache(8)
 
   implicit def toVec3f(tuple: (Float, Float, Float)) = new Vec3f(tuple)
 

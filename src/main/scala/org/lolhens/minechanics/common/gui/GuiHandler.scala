@@ -1,8 +1,9 @@
 package org.lolhens.minechanics.common.gui
 
-import cpw.mods.fml.common.network.IGuiHandler
+import net.minecraftforge.fml.common.network.IGuiHandler
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.world.World
+import net.minecraftforge.fml.common.network.IGuiHandler
 
 /**
  * Created by LolHens on 19.09.2014.
