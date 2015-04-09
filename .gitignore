@@ -1,14 +1,3 @@
-#SBT
-.cache/
-.history/
-.lib/
-dist/*
-target/
-lib_managed/
-src_managed/
-project/boot/
-project/plugins/project/
-
 #Scala
 .scala_dependencies
 .worksheet
@@ -35,5 +24,17 @@ gradle-app.setting
 #Git
 .cache
 
-#Minecraft
+#Other
+*.log
 run/
+
+#SBT
+.cache/
+.history/
+.lib/
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/

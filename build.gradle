@@ -15,48 +15,25 @@ buildscript {
     }
 }
 
+apply plugin: 'java'
 apply plugin: 'scala'
+apply plugin: 'maven-publish'
 apply plugin: 'idea'
+apply plugin: 'eclipse'
 apply plugin: 'forge'
 
-ext.configFile = file "build.properties"
-
-configFile.withReader {
-    def prop = new Properties()
-    prop.load(it)
-    project.ext.config = new ConfigSlurper().parse prop
-}
-
-group = "org.lolhens.minechanics" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "Minechanics"
-version = config.mod_version
-
 minecraft {
-    version = config.minecraft_version + "-" + config.forge_version
-	//mappings = config.minecraft_mappings
+    version = version_minecraft + "-" + version_forge
+    if (project.hasProperty("version_mappings")) mappings = version_mappings
     runDir = "run"
 }
 
-configurations {
-    extractIntoJar
+repositories {
+    mavenLocal()
+    mavenCentral()
 }
 
 dependencies {
-    compile project(":LibEventManager")
-    extractIntoJar project(":LibEventManager")
-    // you may put jars on which you depend on in ./libs
-    // or you may define them like so..
-    //compile "some.group:artifact:version:classifier"
-    //compile "some.group:artifact:version"
-
-    // real examples
-    //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
-    //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
-
-    // for more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
 }
 
 processResources {
@@ -80,17 +57,53 @@ processResources {
 
 jar {
     manifest {
-        attributes 'FMLAT': 'minechanics_at.cfg'
+        if (project.hasProperty("mainClass")) attributes 'Main-Class': mainClass
+        if (project.hasProperty("accessTransformer")) attributes 'FMLAT': accessTransformer
     }
-    from configurations.extractIntoJar.collect { it.isDirectory() ? it : zipTree(it) }
+}
+
+task deobfJar(type: Jar) {
+    from sourceSets.main.output
+    classifier = 'deobf'
 }
 
 task sourceJar(type: Jar) {
     from sourceSets.main.allSource
     classifier = 'sources'
 }
-task deobfJar(type: Jar) {
-    from sourceSets.main.output
-    classifier = 'dev'
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    from 'build/docs/javadoc'
+    classifier = 'javadoc'
 }
-build.dependsOn sourceJar, deobfJar
+
+build {
+    dependsOn deobfJar
+    dependsOn sourceJar
+    dependsOn javadocJar
+}
+
+/*publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+            artifact deobfJar
+            artifact sourceJar
+            artifact javadocJar
+        }
+    }
+
+    // Use -PmavenUsername and -PmavenPassword
+    repositories.maven {
+        if (!(project.hasProperty("mavenUrl") &&
+                project.hasProperty("mavenUsername") &&
+                project.hasProperty("mavenPassword")))
+            return;
+
+        credentials {
+            username mavenUsername
+            password mavenPassword
+        }
+        url mavenUrl
+    }
+}*/
