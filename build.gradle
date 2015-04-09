@@ -17,16 +17,18 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'scala'
+apply plugin: 'forge'
 apply plugin: 'maven-publish'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
-apply plugin: 'forge'
 
 minecraft {
     version = version_minecraft + "-" + version_forge
     if (project.hasProperty("version_mappings")) mappings = version_mappings
     runDir = "run"
 }
+
+if (System.getenv("TRAVIS_BUILD_NUMBER") != null) version = version + "." + System.getenv("TRAVIS_BUILD_NUMBER")
 
 repositories {
     mavenLocal()
@@ -82,30 +84,32 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 build {
     dependsOn deobfJar
     dependsOn sourceJar
-    dependsOn javadocJar
 }
 
-/*publishing {
+publishing {
     publications {
         maven(MavenPublication) {
+            pom.withXml {
+                asNode().dependencies[0].dependency.find {
+                    if (it.groupId[0] == null) it.parent().remove(it)
+                    false
+                }
+            }
+
             from components.java
+
             artifact deobfJar
             artifact sourceJar
-            artifact javadocJar
         }
     }
 
-    // Use -PmavenUsername and -PmavenPassword
     repositories.maven {
-        if (!(project.hasProperty("mavenUrl") &&
-                project.hasProperty("mavenUsername") &&
-                project.hasProperty("mavenPassword")))
-            return;
+        if (!project.hasProperty("mavenUrl")) return;
 
         credentials {
-            username mavenUsername
-            password mavenPassword
+            username System.getenv("CI_DEPLOY_USERNAME")
+            password System.getenv("CI_DEPLOY_PASSWORD")
         }
         url mavenUrl
     }
-}*/
+}
