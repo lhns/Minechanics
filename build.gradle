@@ -66,24 +66,31 @@ jar {
     }
 }
 
-task deobfJar(type: Jar) {
+task tmpReobfJar(type: Copy, dependsOn: assemble) {
+    from jar.archivePath
+    into "build/tmp/reobfJar"
+    rename ".*", "obfOut.jar"
+}
+
+task reobfJar(type: Jar, dependsOn: tmpReobfJar) {
+    from zipTree("build/tmp/reobfJar/obfOut.jar")
+    manifest = jar.manifest
+}
+
+task deobfJar(type: Jar, dependsOn: jar) {
     from sourceSets.main.output
     classifier = 'deobf'
 }
 
-task sourceJar(type: Jar) {
-    from sourceSets.main.allSource
+task sourceJar(type: Jar, dependsOn: sourceMainJava) {
+    from "build/sources/java"
+    from "build/resources/main/java"
     classifier = 'sources'
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
     from 'build/docs/javadoc'
     classifier = 'javadoc'
-}
-
-build {
-    dependsOn deobfJar
-    dependsOn sourceJar
 }
 
 publishing {
@@ -98,6 +105,9 @@ publishing {
 
             from components.java
 
+            setArtifacts(new ArrayList<Object>())
+
+            artifact reobfJar
             artifact deobfJar
             artifact sourceJar
         }
@@ -112,4 +122,9 @@ publishing {
         }
         url mavenUrl
     }
+}
+
+build {
+    dependsOn deobfJar
+    dependsOn sourceJar
 }
