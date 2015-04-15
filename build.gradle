@@ -105,7 +105,7 @@ publishing {
 
             from components.java
 
-            setArtifacts(new ArrayList<Object>())
+            setArtifacts([])
 
             artifact reobfJar
             artifact deobfJar
