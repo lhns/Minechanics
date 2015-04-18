@@ -25,7 +25,7 @@ apply plugin: 'eclipse'
 minecraft {
     version = version_minecraft + "-" + version_forge
     if (project.hasProperty("version_mappings")) mappings = version_mappings
-    runDir = "run"
+    runDir = "build/run"
 }
 
 if (System.getenv("TRAVIS_BUILD_NUMBER") != null) version = version + "." + System.getenv("TRAVIS_BUILD_NUMBER")
